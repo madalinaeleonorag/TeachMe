@@ -1,58 +1,102 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+  <v-card>
+    <v-container fluid grid-list-lg>
+      <v-layout row wrap>
+        <v-flex xs12 sm12>
+          <v-card color="grey lighten-3">
+            <v-card-title class="indigo--text">{{actualChapter.id}}. {{actualChapter.title}}</v-card-title>
+            <v-card-text>{{actualChapter.theory}}</v-card-text>
+            <v-card-text v-if="!questionShow">
+              <v-btn @click="questionShow = !questionShow">Show questions!</v-btn>
+            </v-card-text>
+            <v-card-text v-if="questionShow">
+              <v-card-title>Questions:</v-card-title>
+              <v-card-text v-for="(question, index) in actualChapter.questions" :key="index">
+                <v-card-title class="teal--text">{{question.question}}</v-card-title>
+                <v-radio-group column>
+                  <v-radio
+                    :label="answer.answer"
+                    :value="index+'-'+index2"
+                    @change="setAnswerForQuestion(index, index2)"
+                    v-for="(answer, index2) in question.answers"
+                    :key="index2"  
+                  ></v-radio>
+                </v-radio-group>
+                
+              </v-card-text>
+                <hr>
+              <v-alert
+              :value="true"
+              type="error"
+              v-if="error !== null">
+              {{error}}
+            </v-alert>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn @click="nextQuestion()">Urmatoarea intrebare</v-btn>
+              </v-card-actions>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-card>
 </template>
 
 <script>
+import * as db from "@/components/db";
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: "HelloWorld",
+  data: () => ({
+    database: null,
+    questionShow: false,
+    actualChapter: null,
+    questionNumber: 0,
+    radios: null,
+    answers: [],
+    error: null
+  }),
+  created() {
+    this.database = db.default.chapters;
+    this.actualChapter = this.database[this.questionNumber];
+  },
+  methods: {
+    showQuestions(index) {
+      this.questionShow = index;
+    },
+    nextQuestion() {
+      if (this.verifyAnswers()) {
+        if (this.database.length === this.questionNumber + 1) {
+          this.questionNumber = 0;
+        } else {
+          this.questionNumber = this.questionNumber + 1;
+        }
+        this.actualChapter = this.database[this.questionNumber];
+        this.questionShow = false;
+        this.radios = null;
+        this.answers = [];
+        this.error = null;
+      } else {
+        this.error = "Wrong answer!";
+      }
+    },
+    setAnswerForQuestion(index, index2) {
+      console.log(index,index2)
+      if (this.answers[index] != index2) {
+        this.answers[index] = index2;
+      }
+      console.log(this.answers)
+    },
+    verifyAnswers() {
+      let x = []
+      this.answers.forEach((item, index) => {
+      x[index] = this.actualChapter.questions[index].answers[item].correct
+      })
+      return x.indexOf(false) === -1
+    }
   }
-}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
 </style>
