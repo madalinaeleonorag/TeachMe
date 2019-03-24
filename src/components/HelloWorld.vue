@@ -19,18 +19,12 @@
                     :value="index+'-'+index2"
                     @change="setAnswerForQuestion(index, index2)"
                     v-for="(answer, index2) in question.answers"
-                    :key="index2"  
+                    :key="index2"
                   ></v-radio>
                 </v-radio-group>
-                
               </v-card-text>
-                <hr>
-              <v-alert
-              :value="true"
-              type="error"
-              v-if="error !== null">
-              {{error}}
-            </v-alert>
+              <hr>
+              <v-alert :value="true" type="error" v-if="error !== null">{{error}}</v-alert>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn @click="nextQuestion()">Urmatoarea intrebare</v-btn>
@@ -77,22 +71,20 @@ export default {
         this.answers = [];
         this.error = null;
       } else {
-        this.error = "Wrong answer!";
+        this.error = "Raspuns gresit! Mai incearca :)";
       }
     },
     setAnswerForQuestion(index, index2) {
-      console.log(index,index2)
       if (this.answers[index] != index2) {
         this.answers[index] = index2;
       }
-      console.log(this.answers)
     },
     verifyAnswers() {
-      let x = []
+      let x = [];
       this.answers.forEach((item, index) => {
-      x[index] = this.actualChapter.questions[index].answers[item].correct
-      })
-      return x.indexOf(false) === -1
+        x[index] = this.actualChapter.questions[index].answers[item].correct;
+      });
+      return x.indexOf(false) === -1;
     }
   }
 };
