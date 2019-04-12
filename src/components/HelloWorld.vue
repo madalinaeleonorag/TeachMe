@@ -1,18 +1,17 @@
 <template>
-  <v-card>
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12 sm12>
-          <v-card color="grey lighten-3">
-            <v-card-title class="indigo--text">{{actualChapter.id}}. {{actualChapter.title}}</v-card-title>
-            <v-card-text>{{actualChapter.theory}}</v-card-text>
+          <v-card color="blue">
+            <v-card-title class="white--text">{{actualChapter.id}}. {{actualChapter.title}}</v-card-title>
+            <v-card-text class="white--text" v-html="actualChapter.theory"></v-card-text>
             <v-card-text v-if="!questionShow">
               <v-btn @click="questionShow = !questionShow">Show questions!</v-btn>
             </v-card-text>
             <v-card-text v-if="questionShow">
               <v-card-title>Questions:</v-card-title>
               <v-card-text v-for="(question, index) in actualChapter.questions" :key="index">
-                <v-card-title class="teal--text">{{question.question}}</v-card-title>
+                <v-card-title class="white--text">{{question.question}}</v-card-title>
                 <v-radio-group column>
                   <v-radio
                     :label="answer.answer"
@@ -34,7 +33,6 @@
         </v-flex>
       </v-layout>
     </v-container>
-  </v-card>
 </template>
 
 <script>
