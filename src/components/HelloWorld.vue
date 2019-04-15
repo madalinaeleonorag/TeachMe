@@ -6,7 +6,7 @@
         <v-card color="white">
           <v-card-title class="blue--text font-weight-bold">{{actualChapter.title}}</v-card-title>
           <v-card-text class="black--text" v-html="breakIt(actualChapter.theory)"></v-card-text>
-          <div v-if="actualChapter.id != '10'">
+          <div v-if="actualChapter.id != '10' || actualChapter.id != '9' || actualChapter.id != '1'">
             <v-card-text v-if="!questionShow">
               <v-btn @click="questionShow = !questionShow">Arata intrebarile!</v-btn>
             </v-card-text>
@@ -26,7 +26,7 @@
               <v-alert :value="true" type="error" v-if="error !== null">{{error}}</v-alert>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn @click="nextQuestion()">Urmatoarea intrebare</v-btn>
+                <v-btn @click="nextQuestion()">Vezi raspunsuri</v-btn>
               </v-card-actions>
             </v-card-text>
           </div>

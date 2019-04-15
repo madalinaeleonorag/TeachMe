@@ -10,7 +10,7 @@ var text = {
       Alegerea unei strategii eficiente de securizare implica prevenirea riscurilor de expunere si acoperirea punctelor vulnerabile pentru a adapta solutia de securitate la nevoile fiecarei retele si a reduce costurile.
       Cateva din serviciile de securitate sunt: 
       <ul>
-      <li>Autentificarea - mecanism de identificare a unui utilizator uman, echipament sau program software;</li> 
+      <li><span style="background-color: yellow;">Autentificarea</span> - mecanism de identificare a unui utilizator uman, echipament sau program software;</li> 
       <li>Autorizare – reprezinta incadrarea, delimitarea accesului acordat unui utilizator la date sau programe, dupa ce procesul de autentificare se incheie cu succes;</li> 
       <li>Disponibilitatea - este serviciul care manageriaza accesul utilizatorilor la alte servicii prin intermediul grupurilor;</li> 
       <li>Confidentialitatea - reprezinta protectia datelor cu caracter privat;</li> 
