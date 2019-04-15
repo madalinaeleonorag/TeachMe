@@ -2,7 +2,7 @@
   <v-container fluid grid-list-lg>
     <v-layout row wrap>
       <v-flex xs12 sm12>
-        <v-progress-linear color="blue" height="20" :value="actualChapter.id *10"></v-progress-linear>
+        <v-progress-linear color="blue" height="20" :value="(chapterNumber *100)/10"></v-progress-linear>
         <v-card color="white">
           <div class="text-xs-center" v-if="actualChapter.id === '11'">
             <v-card-text
@@ -13,7 +13,7 @@
               :size="100"
               :width="15"
               :value="(correctQuestions * 100)/allQuestions"
-              :color="(correctQuestions * 100)/allQuestions >= 80 ? 'green' : 'red'"
+              :color="(correctQuestions * 100)/allQuestions >= 80 ? 'green' : (correctQuestions * 100)/allQuestions < 80 || (correctQuestions * 100)/allQuestions >= 50 ? 'orange' : 'red'"
             >{{ Math.round(((correctQuestions * 100)/allQuestions) * 100) / 100 }}</v-progress-circular>
             <v-card-text>
             <v-btn flat color="blue" @click="tryAgain()">Incearca din nou</v-btn>
