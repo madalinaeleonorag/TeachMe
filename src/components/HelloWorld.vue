@@ -6,7 +6,9 @@
         <v-card color="white">
           <v-card-title class="blue--text font-weight-bold">{{actualChapter.title}}</v-card-title>
           <v-card-text class="black--text" v-html="breakIt(actualChapter.theory)"></v-card-text>
-          <div v-if="actualChapter.id != '10' || actualChapter.id != '9' || actualChapter.id != '1'">
+          <div
+            v-if="(actualChapter.id != '10') && (actualChapter.id != '9') && (actualChapter.id != '1')"
+          >
             <v-card-text v-if="!questionShow">
               <v-btn @click="questionShow = !questionShow">Arata intrebarile!</v-btn>
             </v-card-text>
@@ -17,19 +19,25 @@
                   <v-radio
                     :label="answer.answer"
                     :value="index+'-'+index2"
-                    @change="setAnswerForQuestion(index, index2)"
+                    :color="setShowResponses(index, index2)"
+                    :readonly="disabledSelect"
                     v-for="(answer, index2) in question.answers"
                     :key="index2"
                   ></v-radio>
                 </v-radio-group>
               </v-card-text>
-              <v-alert :value="true" type="error" v-if="error !== null">{{error}}</v-alert>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn @click="nextQuestion()">Vezi raspunsuri</v-btn>
+                <v-btn @click="seeAnswers()" v-if="seeAnswersVar === false && answersSeen === false">Vezi raspunsuri</v-btn>
               </v-card-actions>
             </v-card-text>
           </div>
+          <v-card-actions
+            v-if="(actualChapter.id === '10') || (actualChapter.id === '9') || (actualChapter.id === '1') || (answersSeen === true)"
+          >
+          <v-spacer></v-spacer>
+              <v-btn @click="nextQuestion()">Urmatoarea lectie</v-btn>
+          </v-card-actions>
         </v-card>
       </v-flex>
     </v-layout>
@@ -44,14 +52,16 @@ export default {
     database: null,
     questionShow: false,
     actualChapter: null,
-    questionNumber: 0,
+    chapterNumber: 0,
     radios: null,
+    disabledSelect: false,
     answers: [],
-    error: null
+    seeAnswersVar: false,
+    answersSeen: false
   }),
   created() {
     this.database = db.default.chapters;
-    this.actualChapter = this.database[this.questionNumber];
+    this.actualChapter = this.database[this.chapterNumber];
   },
   methods: {
     showQuestions(index) {
@@ -71,32 +81,36 @@ export default {
       }
     },
     nextQuestion() {
-      if (this.verifyAnswers()) {
-        if (this.database.length === this.questionNumber + 1) {
-          this.questionNumber = 0;
-        } else {
-          this.questionNumber = this.questionNumber + 1;
-        }
-        this.actualChapter = this.database[this.questionNumber];
-        this.questionShow = false;
-        this.radios = null;
-        this.answers = [];
-        this.error = null;
+      if (this.database.length === this.chapterNumber + 1) {
+        this.chapterNumber = 0;
       } else {
-        this.error = "Raspuns gresit! Mai incearca :)";
+        this.chapterNumber = this.chapterNumber + 1;
       }
+      this.actualChapter = this.database[this.chapterNumber];
+      this.questionShow = false;
+      this.radios = null;
+      this.answers = [];
+      this.seeAnswersVar = false;
+      this.disabledSelect = false;
+      this.answersSeen = false;
     },
-    setAnswerForQuestion(index, index2) {
-      if (this.answers[index] != index2) {
-        this.answers[index] = index2;
-      }
+    /*
+    index = index intrebare
+    index2 = index raspuns
+    */
+    verifyAnswer(index, index2) {
+      return this.actualChapter.questions[index].answers[index2].correct === true
+        ? "green"
+        : "red";
     },
-    verifyAnswers() {
-      let x = [];
-      this.answers.forEach((item, index) => {
-        x[index] = this.actualChapter.questions[index].answers[item].correct;
-      });
-      return x.indexOf(false) === -1;
+    seeAnswers() {
+      this.seeAnswersVar = true
+      this.disabledSelect = true
+      this.answersSeen = true
+      console.log('ceva')
+    },
+    setShowResponses(index, index2) {
+      return  this.seeAnswersVar === true ? this.verifyAnswer(index, index2) : 'primary' 
     }
   }
 };
