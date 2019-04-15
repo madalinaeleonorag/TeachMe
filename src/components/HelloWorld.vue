@@ -2,33 +2,34 @@
   <v-container fluid grid-list-lg>
     <v-layout row wrap>
       <v-flex xs12 sm12>
-        <v-card color="blue">
-          <v-card-title class="white--text">{{actualChapter.title}}</v-card-title>
-          <v-card-text class="white--text" v-html="breakIt(actualChapter.theory)"></v-card-text>
-          <v-card-text v-if="!questionShow">
-            <v-btn @click="questionShow = !questionShow">Show questions!</v-btn>
-          </v-card-text>
-          <v-card-text v-if="questionShow">
-            <v-card-title>Questions:</v-card-title>
-            <v-card-text v-for="(question, index) in actualChapter.questions" :key="index">
-              <v-card-title class="white--text">{{question.question}}</v-card-title>
-              <v-radio-group column>
-                <v-radio
-                  :label="answer.answer"
-                  :value="index+'-'+index2"
-                  @change="setAnswerForQuestion(index, index2)"
-                  v-for="(answer, index2) in question.answers"
-                  :key="index2"
-                ></v-radio>
-              </v-radio-group>
+        <v-progress-linear color="blue" height="20" :value="actualChapter.id *10"></v-progress-linear>
+        <v-card color="white">
+          <v-card-title class="blue--text font-weight-bold">{{actualChapter.title}}</v-card-title>
+          <v-card-text class="black--text" v-html="breakIt(actualChapter.theory)"></v-card-text>
+          <div v-if="actualChapter.id != '10'">
+            <v-card-text v-if="!questionShow">
+              <v-btn @click="questionShow = !questionShow">Arata intrebarile!</v-btn>
             </v-card-text>
-            <hr>
-            <v-alert :value="true" type="error" v-if="error !== null">{{error}}</v-alert>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn @click="nextQuestion()">Urmatoarea intrebare</v-btn>
-            </v-card-actions>
-          </v-card-text>
+            <v-card-text v-if="questionShow">
+              <v-card-text v-for="(question, index) in actualChapter.questions" :key="index">
+                <label class="blue--text">{{question.question}}</label>
+                <v-radio-group column>
+                  <v-radio
+                    :label="answer.answer"
+                    :value="index+'-'+index2"
+                    @change="setAnswerForQuestion(index, index2)"
+                    v-for="(answer, index2) in question.answers"
+                    :key="index2"
+                  ></v-radio>
+                </v-radio-group>
+              </v-card-text>
+              <v-alert :value="true" type="error" v-if="error !== null">{{error}}</v-alert>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn @click="nextQuestion()">Urmatoarea intrebare</v-btn>
+              </v-card-actions>
+            </v-card-text>
+          </div>
         </v-card>
       </v-flex>
     </v-layout>
@@ -57,10 +58,17 @@ export default {
       this.questionShow = index;
     },
     breakIt(value) {
-      let firstIndex = value.indexOf('•')
-      let replaceByIndex = value.substr(0, firstIndex) + '<ul></li>' + value.substr('<ul></li>'.length)
-      let testBullets = replaceByIndex.split('•').join('</li><li>')
-      return testBullets.split('.').join('.<br>&nbsp;&nbsp;&nbsp;&nbsp;')
+      if (this.actualChapter.id === "10") {
+        return value;
+      } else {
+        let subtitleCheckForBr1 = value.split("<i>").join("<br><i>");
+        let subtitleCheck = subtitleCheckForBr1
+          .split("<i>")
+          .join('<i style="color:#2196F3;">');
+        let subtitleCheckForBr2 = subtitleCheck.split("</i>").join("</i><br>");
+        let brCheck = subtitleCheckForBr2.split(".").join(".<br>");
+        return brCheck;
+      }
     },
     nextQuestion() {
       if (this.verifyAnswers()) {
@@ -95,4 +103,7 @@ export default {
 </script>
 
 <style>
+/* i {
+  color: #2196F3;
+} */
 </style>
