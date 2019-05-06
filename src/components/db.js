@@ -62,45 +62,23 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Din punct de vedere al criteriului domeniului de utilizare informatiile pot fi?",
           id: "1",
           answers: [{
-            answer: "answer 1",
-            correct: false
-          },
-          {
-            answer: "answer 2",
-            correct: false
-          },
-          {
-            answer: "answer 3",
-            correct: false
-          },
-          {
-            answer: "answer 4",
+            answer: "publicitare, comerciale, educationale, de divertisment, cu sau fara plata, guvernamentale si militare",
             correct: true
-          }]
-        },
-        {
-          question: "question 1 text",
-          type: "fill the gap",
-          id: "1",
-          answers: [{
-            answer: "answer 1",
+          },
+          {
+            answer: "locale, active, puplicitare si educationale",
             correct: false
           },
           {
-            answer: "answer 2",
+            answer: "guvernamentale, educationale, publice si private",
             correct: false
           },
           {
-            answer: "answer 3",
+            answer: "pulicitare, comerciale, de divertisment, de utilizator si de retea",
             correct: false
-          },
-          {
-            answer: "answer 4",
-            correct: true
           }]
         }
       ]
@@ -130,44 +108,82 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Care sunt nivelele pentru securitatea unei retea de calcuatoare?",
           id: "1",
           answers: [{
-            answer: "answer 1",
+            answer: "fizic, digital, logic si informational",
             correct: false
           },
           {
-            answer: "answer 2",
+            answer: "logic si informational",
             correct: false
           },
           {
-            answer: "answer 3",
-            correct: false
-          },
-          {
-            answer: "answer 4",
+            answer: "fizic, logic si informational",
             correct: true
+          },
+          {
+            answer: "fizic, digital si logic",
+            correct: false
           }]
         },
         {
-          question: "question 1 text",
-          type: "fill the gap",
-          id: "1",
+          question: "De ce tip sunt caile fizice de comunicatie?",
+          id: "2",
           answers: [{
-            answer: "answer 1",
+            answer: "cablate",
             correct: false
           },
           {
-            answer: "answer 2",
+            answer: "de tip radio sau cablate",
+            correct: true
+          },
+          {
+            answer: "cablate",
             correct: false
           },
           {
-            answer: "answer 3",
+            answer: "de tip radio buton sau cablate",
+            correct: false
+          }]
+        },
+        {
+          question: "De ce tip sunt caile de transmisie?",
+          id: "3",
+          answers: [{
+            answer: "de tip up-link si down-link",
+            correct: true
+          },
+          {
+            answer: "de tip up-link si left-link",
             correct: false
           },
           {
-            answer: "answer 4",
+            answer: "de tip down-link si right-link",
+            correct: false
+          },
+          {
+            answer: "de tip up-link, left-link, right-link si down-link",
+            correct: false
+          }]
+        },
+        {
+          question: "Pe ce baza se stabileste metrica de securitate?",
+          id: "2",
+          answers: [{
+            answer: "Metrica de securitate se va stabili pe baza riscului de securitate pe care îl prezinta un anumit element din retelei de transmisie",
+            correct: false
+          },
+          {
+            answer: "Metrica de securitate se va stabili pe baza certitudinii de securitate pe care îl prezinta un anumit element din graful retelei",
+            correct: false
+          },
+          {
+            answer: "Metrica de securitate se va stabili pe baza riscului de securitate",
+            correct: false
+          },
+          {
+            answer: "Metrica de securitate se va stabili pe baza riscului de securitate pe care îl prezinta un anumit element din graful retelei",
             correct: true
           }]
         }
@@ -194,23 +210,22 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Conform statisticilor cat % din atacuri pornesc din interiorul retelei?",
           id: "1",
           answers: [{
-            answer: "answer 1",
+            answer: "50 % din atacuri pornesc din interiorul retelei",
             correct: false
           },
           {
-            answer: "answer 2",
+            answer: "90 % din atacuri pornesc din interiorul retelei",
             correct: false
           },
           {
-            answer: "answer 3",
+            answer: "20 % din atacuri pornesc din interiorul retelei",
             correct: false
           },
           {
-            answer: "answer 4",
+            answer: "80 % din atacuri pornesc din interiorul retelei",
             correct: true
           }]
         }
@@ -222,10 +237,10 @@ var text = {
       title: "Securitatea logica",
       theory: `
       Securitatea logica se refera la protectia accesului logic la resursele si serviciile de retea. Aceasta se realizeaza prin metode si facilitati software care asigura controlul drepturilor de acces si utilizare. 
-      Se disting doua mari nivele de securitate logica: 
+      <span class="yellowText">Se disting doua mari nivele de securitate logica: </span>
       <ul>
-        <li>securitatea logica a accesului (SLA) care se refera la accesul la sistem/retea, contul de utilizator si la documente (fisiere)</li>
-        <li>securitatea logica a serviciilor (SLS) care cuprinde accesul la serviciile de sistem/retea pe baza listelor de asteptare, intrare/iesire de pe disc, controlul si gestionarea serviciilor (management). Controlul serviciilor (CS) monitorizeaza si raporteaza starea serviciilor, activeaza sau dezactiveaza serviciile oferite de sistem si de retea. Drepturile la servicii (DS) stabilesc cine si cum foloseste un anumit serviciu</li>
+        <li><span class="yellowText">securitatea logica a accesului (SLA) care se refera la accesul la sistem/retea, contul de utilizator si la documente (fisiere)</span></li>
+        <li><span class="yellowText">securitatea logica a serviciilor (SLS) care cuprinde accesul la serviciile de sistem/retea pe baza listelor de asteptare, intrare/iesire de pe disc, controlul si gestionarea serviciilor (management). Controlul serviciilor (CS) monitorizeaza si raporteaza starea serviciilor, activeaza sau dezactiveaza serviciile oferite de sistem si de retea. Drepturile la servicii (DS) stabilesc cine si cum foloseste un anumit serviciu</span></li>
       </ul>
       <br>
       <i>Securitatea logica a accesului</i>
@@ -255,24 +270,23 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Care sunt nivelele de securitate logica?",
           id: "1",
           answers: [{
-            answer: "answer 1",
-            correct: false
-          },
-          {
-            answer: "answer 2",
-            correct: false
-          },
-          {
-            answer: "answer 3",
-            correct: false
-          },
-          {
-            answer: "answer 4",
+            answer: "nivelul accesului si al serviciilor",
             correct: true
+          },
+          {
+            answer: "nivelul fizic si al accesului",
+            correct: false
+          },
+          {
+            answer: "nivelul interfata si nivelul serviciilor",
+            correct: false
+          },
+          {
+            answer: "nivelul logic si nivelul fizic",
+            correct: false
           }]
         }
       ]
@@ -345,23 +359,102 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Cum se clasifica functiile hash?",
           id: "1",
           answers: [{
-            answer: "answer 1",
+            answer: "coduri de detectie modificate si coduri de autentificare a mesajelor",
+            correct: true
+          },
+          {
+            answer: "cu valoare fixa si cu valoare diferita",
             correct: false
           },
           {
-            answer: "answer 2",
+            answer: "locale si private",
             correct: false
           },
           {
-            answer: "answer 3",
+            answer: "matematice, fizice si logice",
+            correct: false
+          }]
+        },
+        {
+          question: "Ce este semnatura digitala?",
+          id: "2",
+          answers: [{
+            answer: "un tip de criptare mecanica folosita pentru a identifica un individ ",
             correct: false
           },
           {
-            answer: "answer 4",
+            answer: "o semnatura pentru a identifica un individ din punct de vedere legal",
+            correct: false
+          },
+          {
+            answer: "un tip de criptare asimetrica, asemanator semnaturilor de mâna, folosita pentru a identifica un individ din punct de vedere legal",
+            correct: true
+          },
+          {
+            answer: "un tip de criptare libera, asemanator semnaturilor de mâna, folosite pentru a identifica un individ din punct de vedere legal",
+            correct: false
+          }]
+        },
+        {
+          question: "Care sunt elementele unui certificat digital?",
+          id: "3",
+          answers: [{
+            answer: "numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice si semnatura",
+            correct: false
+          },
+          {
+            answer: "versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura",
+            correct: true
+          },
+          {
+            answer: "versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice si un câmp optional pentru identificarea subiectului",
+            correct: false
+          },
+          {
+            answer: "numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura",
+            correct: false
+          }]
+        },
+        {
+          question: "Cum pot fi marcajele?",
+          id: "4",
+          answers: [{
+            answer: "vizibile, ascunse si transparente",
+            correct: true
+          },
+          {
+            answer: "vizibile",
+            correct: false
+          },
+          {
+            answer: "transparente",
+            correct: false
+          },
+          {
+            answer: "ascunse si vizibile",
+            correct: false
+          }]
+        },
+        {
+          question: "Cum sunt generate marcajele?",
+          id: "5",
+          answers: [{
+            answer: "în mod publica si pot fi detectate folosind chei private sau publice",
+            correct: false
+          },
+          {
+            answer: "în mod privat si pot fi detectate folosind chei private ",
+            correct: false
+          },
+          {
+            answer: "în mod public si pot fi detectate folosind chei publice",
+            correct: false
+          },
+          {
+            answer: "în mod privat si pot fi detectate folosind chei private sau publice",
             correct: true
           }]
         }
@@ -393,23 +486,22 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Cum trebuie sa fie drepturile de securitate?",
           id: "1",
           answers: [{
-            answer: "answer 1",
+            answer: "sunt la fel pentru toate persoanele",
             correct: false
           },
           {
-            answer: "answer 2",
+            answer: "sunt diferentiate doar in ceea ce priveste stergere documentelor",
             correct: false
           },
           {
-            answer: "answer 3",
+            answer: "trebuie stabilite identic la inceput pentru toate persoanele care au acces la retea în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)",
             correct: false
           },
           {
-            answer: "answer 4",
+            answer: "trebuie diferentiate în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)",
             correct: true
           }]
         }
@@ -433,24 +525,23 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "De ce se folosesc retelele de calculatoare?",
           id: "1",
           answers: [{
-            answer: "answer 1",
-            correct: false
-          },
-          {
-            answer: "answer 2",
-            correct: false
-          },
-          {
-            answer: "answer 3",
-            correct: false
-          },
-          {
-            answer: "answer 4",
+            answer: "sunt utilizate atât pentru realizarea comunicatiilor dintre angajati, cât si pentru comunicatii externe",
             correct: true
+          },
+          {
+            answer: "sunt utilizate pentru o retea publica",
+            correct: false
+          },
+          {
+            answer: "sunt utilizate pentru o retea privata",
+            correct: false
+          },
+          {
+            answer: "sunt utilizate pentru o retea izolata",
+            correct: false
           }]
         }
       ]
@@ -501,24 +592,83 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Cine poate realiza un atac local?",
           id: "1",
           answers: [{
-            answer: "answer 1",
-            correct: false
-          },
-          {
-            answer: "answer 2",
-            correct: false
-          },
-          {
-            answer: "answer 3",
-            correct: false
-          },
-          {
-            answer: "answer 4",
+            answer: "o persoana care face parte din reatea, adica de catre un utilizator local",
             correct: true
+          },
+          {
+            answer: "un utilizator oarecare de la distanta",
+            correct: false
+          },
+          {
+            answer: "un administrator",
+            correct: false
+          },
+          {
+            answer: "o persoana care nu are acces la reteaua noastra ",
+            correct: false
+          }]
+        },
+        {
+          question: "Cate etape sunt enumerate in text pentru a putea fi realizat un atac la distanta?",
+          id: "2",
+          answers: [{
+            answer: "3",
+            correct: true
+          },
+          {
+            answer: "4",
+            correct: false
+          },
+          {
+            answer: "5",
+            correct: false
+          },
+          {
+            answer: "2",
+            correct: false
+          }]
+        },
+        {
+          question: "Care este scopul atacurilor active?",
+          id: "2",
+          answers: [{
+            answer: "reducerea disponibilitatii retelei prin supraîncarcarea acesteia cu pachete",
+            correct: false
+          },
+          {
+            answer: "furtul, falsificarea informatiilor, flooding, perturbarea sau blocarea comunicatiilor",
+            correct: true
+          },
+          {
+            answer: "furtul sau falsificarea informatiilor transmise ori stocate în retea",
+            correct: false
+          },
+          {
+            answer: "perturbarea sau blocarea comunicatiilor prin atac fizic sau logic asupra echipamentelor din retea si a cailor de comunicatii",
+            correct: false
+          }]
+        },
+        {
+          question: "Unde putem gasi un atac criptografic?",
+          id: "2",
+          answers: [{
+            answer: "cand dorim sa analizam un text pe care il avem in format online",
+            correct: false
+          },
+          {
+            answer: "se aplica direct mesajelor cifrate în vederea obtinerii informatiei originale în clar si/sau a cheilor de criptare si de decriptare.",
+            correct: true
+          },
+          {
+            answer: "cand primim un email de la o adresa pe care noi nu o stim",
+            correct: false
+          },
+          {
+            answer: "cand dorim sa avem informatii clare despre un mesaj",
+            correct: false
           }]
         }
       ]
@@ -566,24 +716,103 @@ var text = {
       `,
       questions: [
         {
-          question: "question 1 text",
-          type: "fill the gap",
+          question: "Cum se face transmiterea pachetelor IP?",
           id: "1",
           answers: [{
-            answer: "answer 1",
-            correct: false
-          },
-          {
-            answer: "answer 2",
-            correct: false
-          },
-          {
-            answer: "answer 3",
-            correct: false
-          },
-          {
-            answer: "answer 4",
+            answer: "se face intre calculatoare gazda, dar nu direct",
             correct: true
+          },
+          {
+            answer: "se face intre programele de aplicatie",
+            correct: false
+          },
+          {
+            answer: "se face fragmentat cu ajutorul unei aplicatii instalate pe fiecare calculator",
+            correct: false
+          },
+          {
+            answer: "se face sub forma de pachete ",
+            correct: false
+          }]
+        },
+        {
+          question: "Cum sunt trimise datele cu ajutorul protocoalelor Ipv4?",
+          id: "2",
+          answers: [{
+            answer: "datele sunt trimise sub forma de pixeli",
+            correct: false
+          },
+          {
+            answer: "datele nu se pot trimite ",
+            correct: false
+          },
+          {
+            answer: "datele sunt trimise sub forma unor blocuri de caractere, numite datagrame sau pachete",
+            correct: true
+          },
+          {
+            answer: "datele msunt trimise doar sub forma de pachete",
+            correct: false
+          }]
+        },
+        {
+          question: "Ce este un Firewall?",
+          id: "2",
+          answers: [{
+            answer: "este un simplu ruter sau un calculator gazda care asigura securitatea unei retele",
+            correct: false
+          },
+          {
+            answer: "reprezinta implementarea acestei politici in termeni de configurare a retelei, unul sau mai multe sisteme gazda si ruter-e cu functiuni speciale, alte masuri de securitate, cum ar fi autentificarea prin metode criptografice a clientilor",
+            correct: false
+          },
+          {
+            answer: "este o aplicatie care ne ajuta sa ne protejam calculatorul de atacurile altor persoane",
+            correct: false
+          },
+          {
+            answer: "este un sistem care impune o politica de control al accesului intre doua retele",
+            correct: true
+          }]
+        },
+        {
+          question: "Ce reprezinta un IDS?",
+          id: "2",
+          answers: [{
+            answer: "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite. ",
+            correct: true
+          },
+          {
+            answer: "se refera lam activitatea unui virus gasit intr-un calculator dintr-o companie",
+            correct: false
+          },
+          {
+            answer: "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii",
+            correct: false
+          },
+          {
+            answer: "sunt o completare a comunicarii intre retelele de calculatoare",
+            correct: false
+          }]
+        },
+        {
+          question: "Din punctul de vedere al accesibilitatii, care sunt cele doua modalitati de abordare a problemei retelelor private care au ca suport o retea publica:",
+          id: "2",
+          answers: [{
+            answer: "LAN si VPN",
+            correct: false
+          },
+          {
+            answer: "VPN-uri de acces de la distannta si VPN-uri realizate intre mai multe retele locale",
+            correct: true
+          },
+          {
+            answer: "SSL si TSL",
+            correct: false
+          },
+          {
+            answer: "TPC si TSL",
+            correct: false
           }]
         }
       ]
