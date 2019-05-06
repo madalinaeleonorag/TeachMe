@@ -1,5 +1,6 @@
 var text = {
   chapters: [
+    //1
     {
       id: "1",
       title: "Introducere",
@@ -10,7 +11,7 @@ var text = {
       Alegerea unei strategii eficiente de securizare implica prevenirea riscurilor de expunere si acoperirea punctelor vulnerabile pentru a adapta solutia de securitate la nevoile fiecarei retele si a reduce costurile.
       Cateva din serviciile de securitate sunt: 
       <ul>
-      <li><span style="background-color: yellow;">Autentificarea</span> - mecanism de identificare a unui utilizator uman, echipament sau program software;</li> 
+      <li>Autentificarea - mecanism de identificare a unui utilizator uman, echipament sau program software;</li> 
       <li>Autorizare – reprezinta incadrarea, delimitarea accesului acordat unui utilizator la date sau programe, dupa ce procesul de autentificare se incheie cu succes;</li> 
       <li>Disponibilitatea - este serviciul care manageriaza accesul utilizatorilor la alte servicii prin intermediul grupurilor;</li> 
       <li>Confidentialitatea - reprezinta protectia datelor cu caracter privat;</li> 
@@ -19,6 +20,7 @@ var text = {
       </ul> 
       `
     },
+    //2
     {
       id: "2",
       title: "Factori si delimitari",
@@ -46,15 +48,16 @@ var text = {
           <li>interne;</li>
           <li>externe.</li>
         </ul>
-        Dupa criteriul domeniului de utilizare se definesc urmatoarele categorii:
+        <span class="yellowText">Dupa criteriul domeniului de utilizare se definesc urmatoarele categorii:<span>
         <ul>
-          <li>publicitare;</li>
-          <li>comerciale;</li>
-          <li>educationale;</li>
-          <li>de divertisment;</li>
-          <li>cu sau fara plata;</li>
-          <li>guvernamentale;</li>
-          <li>militare.</li>
+          <li><span class="yellowText">publicitare;</span></li>
+          <li><span class="yellowText">comerciale;</span></li>
+          <li><span class="yellowText">educationale;</span></li>
+          <li><span class="yellowText">de divertisment;</span></li>
+          <li><span class="yellowText">cu sau fara plata;</span></li>
+          <li><span class="yellowText">guvernamentale;</span></li>
+          <li><span class="yellowText">militare.</span></li>
+          </span>
         </ul>
       `,
       questions: [
@@ -102,13 +105,82 @@ var text = {
         }
       ]
     },
+    //3
     {
       id: "3",
+      title: "Modele de securitate",
+      theory: `
+      <span class="yellowText">O retea de calculatoare este un sistem de resurse interconectate, folosite de o multime de utilizatori, cu drepturi specifice de utilizare a acestora, iar securitatea retelei ar trebui asigurata modular, pe nivele : informational , logic, fizic.
+      </span>In modelul de securitate centrat pe subiect sau pe informatie, straturile acestora reprezinta nivelele de securitate. Acestea ofera protectie subiectului care va fi securizat. Fiecare nivel confera inca un strat de izolare a subiectului si îl fac mai greu de accesat in moduri neprevazute. Acest model se mai numeste si "modelul ceapa" (onion model) în literatura de specialitate. Fiecare nivel ofera un plus de securitate.
+      Acronimele pentru nivele reprezinta:
+      <ul>
+        <li>II - Integritatea informatiei</li>
+        <li>SI - Secretizarea informatiei</li>
+        <li>SLS - Securitatea logica a serviciilor</li>
+        <li>SLA - Securitatea logica a accesului</li>
+        <li>SF - Securitatea fizica</li>
+      </ul>
+      Modelul de securitate stratificat este folosit cu eficienta maxima la nivel de nod de retea. Procesele de comunicatie implica cel putin doua noduri, precum si cai de transmisie intre ele. Ca urmare, securitatea trebuie evaluata atat în fiecare nod, cat si pe fiecare flux sau cale de comunicatie (flow) din retea.
+      Un alt tip de model folosit pentru serviciile de securitate este cel de tip „arbore”.
+      Acest model trebuie aplicat pentru retelele în care se folosesc resurse distribuite pe multiple servere din retea. Informatiile sunt transmise de la nodul-sursa la nodul-destinatie folosind noduri de retea si diferite cai fizice de comunicatie, indiferent daca sunt folosite fire sau nu. Cel mai „slab” element de pe calea de transfer (canal de comunicatie sau nod) determina gradul de securitate al procesului de transfer de date în retea va fi dat de cel mai "slab" segment al caii de transfer. Ca urmare, toate segmentele folosite in calea de transmisie trebuie securizate pentru a spori gradul de securitate la nivel de retea. 
+      <span class="yellowText">In modelul de securitate arborescent, clientul este considerat radacina în diagrama, serverele sunt noduri terminale, iar echipamentele de comunicatie sunt noduri intermediare. În fiecare nod se poate aplica primul model de securitate centrat pe subiect. Legaturile intre noduri sunt caile fizice de comunicatie, care pot fi de tip cablate sau radio. În cazul retelelor cu topologie redundanta, de tip "plasa" (mesh) este dificil de identificat "arborele" de comunicatie dar acesta poate fi impus prin decizii de rutare stricta pe o anumita cale din retea. 
+      Definirea unei metrici in vederea securizarii in graful retelei este recomandata pentru rutarea unui pachet cu un grad de securitate specific. Spre deosebire de metricile uzuale folosite de algoritmii de rutare, metrica vizând securitatea trebuie sa includa si nivelul de securitate oferit de nodurile care delimiteaza un arc din graf. De asemenea, este utila folosirea grafurilor orientate si reprezentarea separata a cailor de transmisie de tip up-link si down-link dintre doua noduri de retea, în cazul comunicatiilor asimetrice, cu medii si tehnologii diferite de transmisie. Metrica de securitate se va stabili pe baza riscului de securitate pe care îl prezinta un anumit element din graful retelei. Decizia privind ruta optima din punct de vedere al securitatii transmisiei va viza reducerea riscului de securitate la nivelul impus de costurile maxim admise. Gradul de securitate al unui pachet poate fi exprimat prin bitii optionali de securitate inclusi în antetul pachetului. 
+      </span>Utilitatea acestui model este sporita in analiza atacurilor distribuite, lansate in retea in mai multe noduri, in care este dificila identificarea atacatorului.
+      În domeniul retelelor de comunicatii, s-au propus diverse modele securitate de catre firmele producatoare de echipamente si de programe software, pentru diferite domenii de aplicabilitate care necesita protectia informatiilor cu caracter privat sau confidential (în domeniul sanatatii populatiei HIPAA - Health Insurance Portability and Accountability Act, în domeniul financiar-bancar si de asigurari GLBA - Gramm-Leach-Bliley Act, precum si în cel al platilor prin intermediul cardurilor bancare PCI DSS - Payment Card Industry Data Security Standard si altele)
+      `,
+      questions: [
+        {
+          question: "question 1 text",
+          type: "fill the gap",
+          id: "1",
+          answers: [{
+            answer: "answer 1",
+            correct: false
+          },
+          {
+            answer: "answer 2",
+            correct: false
+          },
+          {
+            answer: "answer 3",
+            correct: false
+          },
+          {
+            answer: "answer 4",
+            correct: true
+          }]
+        },
+        {
+          question: "question 1 text",
+          type: "fill the gap",
+          id: "1",
+          answers: [{
+            answer: "answer 1",
+            correct: false
+          },
+          {
+            answer: "answer 2",
+            correct: false
+          },
+          {
+            answer: "answer 3",
+            correct: false
+          },
+          {
+            answer: "answer 4",
+            correct: true
+          }]
+        }
+      ]
+    },
+    //4
+    {
+      id: "4",
       title: "Securitatea fizica",
       theory: `
       Securitatea fizica reprezinta nivelul exterior al modelului de securitate si consta, în general, în protectia "sub cheie" a echipamentelor informatice într-un birou sau într-o alta incinta precum si asigurarea pazei si a controlului accesului.
-      Conform statisticilor 80 % din atacuri pornesc din interiorul retelei. Deoarece sistemele din retea sunt complexe si sunt folosite multe echipamente, de regula calculatoare, este greu sa se obtina o imagine completa a tuturor operatiilor si entitatilor active la un moment dat in cadrul retelei. Din acest motiv, retelele de comunicatii prezinta un grad ridicat de dificultate cu privire la administrarea lor in mod eficient, fiind vulnerabile la atacuri interne si externe.
-      Aceasta acest grad de complexitate este generat de: administrarea multi-organizatie pentru aceeasi retea, raspandirea geografica, diversitatea tipurilor de echipamente, a sistemelor de operare si numarul ridicat de entitati existente in aceeasi retea. 
+      <span class="yellowText">Conform statisticilor 80 % din atacuri pornesc din interiorul retelei. Deoarece sistemele din retea sunt complexe si sunt folosite multe echipamente, de regula calculatoare, este greu sa se obtina o imagine completa a tuturor operatiilor si entitatilor active la un moment dat in cadrul retelei. Din acest motiv, retelele de comunicatii prezinta un grad ridicat de dificultate cu privire la administrarea lor in mod eficient, fiind vulnerabile la atacuri interne si externe.
+      </span>Aceasta acest grad de complexitate este generat de: administrarea multi-organizatie pentru aceeasi retea, raspandirea geografica, diversitatea tipurilor de echipamente, a sistemelor de operare si numarul ridicat de entitati existente in aceeasi retea. 
       Angajatii care se administreaza reteaua trebuie sa respecte si sa asigure regulile de buna functionare si securitate fizica delimitate de politica de securitate: 
         <ul>
       <li>echipamentele si cablurile folosite in retea trebuie sa fie montate pe perete pentru a le proteja, în locuri nefolosite frecvent, pentru a evita defectarea lor, fie ea intentionata sau accidentala; 
@@ -144,8 +216,9 @@ var text = {
         }
       ]
     },
+    //5
     {
-      id: "4",
+      id: "5",
       title: "Securitatea logica",
       theory: `
       Securitatea logica se refera la protectia accesului logic la resursele si serviciile de retea. Aceasta se realizeaza prin metode si facilitati software care asigura controlul drepturilor de acces si utilizare. 
@@ -204,8 +277,9 @@ var text = {
         }
       ]
     },
+    //6
     {
-      id: "5",
+      id: "6",
       title: "Securitatea informatiilor",
       theory: `
       Criptografia reprezinta o ramura a matematicii, care se ocupa cu secretizarea, autentificarea si restrictionarea accesului la informatii într-un sistem informatic. În realizarea acestora se utilizeaza metode matematice, bazate de exemplu pe dificultatea factorizarii numerelor foarte mari. 
@@ -234,33 +308,33 @@ var text = {
       Integritatea informatiei se poate asigura prin mai multe metode: tehnica rezumatului, semnatura digitala , certificatul digital, marcarea continutului. 
       <i>Tehnica Hash</i>
       Functia hash are scopul de a verifica si asigura ca datele transmise la intrarea în retea sunt aceleasi cu cele primite la destinatie. În urma aplicarii unei functii hash la un pachet de date, înainte de transmisie, va rezulta o valoare fixa, care este apoi recalculata la receptie. În cazul în care cele doua valori sunt identice, se trage concluzia ca datele nu au fost alterate. Daca datele sunt modificate în tranzit, la destinatie se va obtine o alta valoare de transformare, ceea ce va indica falsificarea datelor. 
-      Functiile hash se clasifica în doua mari categorii: coduri de detectie modificate (MDCs) si coduri de autentificare a mesajelor (message authentication codes -MACs).
-      <i>Semnatura digitala</i>
-      Sunt un tip de criptare asimetrica, asemanator semnaturilor de mâna, folosite pentru a identifica un individ din punct de vedere legal. Ele pot identifica persoana care a semnat o tranzactie sau un mesaj, dar spre deosebire de semnaturile de mâna, poate ajuta în verificarea faptului ca un document sau o tranzactie nu a fost modificata fata de starea originala din momentul semnarii. 
+      <span class="yellowText">Functiile hash se clasifica în doua mari categorii: coduri de detectie modificate (MDCs) si coduri de autentificare a mesajelor (message authentication codes -MACs).
+      </span><i>Semnatura digitala</i>
+      <span class="yellowText">Sunt un tip de criptare asimetrica, asemanator semnaturilor de mâna, folosite pentru a identifica un individ din punct de vedere legal.</span> Ele pot identifica persoana care a semnat o tranzactie sau un mesaj, dar spre deosebire de semnaturile de mâna, poate ajuta în verificarea faptului ca un document sau o tranzactie nu a fost modificata fata de starea originala din momentul semnarii. 
       Schema unei semnaturi digitale consta din 3 algoritmi: algoritmul de generare a cheii, algoritmul de semnare, algoritmul de verificare a cheii.
       Functiile hash, cu sau fara cheie, pot fi utilizate pentru securizarea accesului la retea, pentru criptarea datelor si verificarea integritatii acestora.
       <i>Certificatul digital</i>
       Este un mecanism care sa stabileste o legatura între cheia publica si utilizatorul real, pentru a avea garantia ca o cheie publica utilizata pentru a crea o semnatura digitala apartine într-adevar unui anumite persoane si ca acea cheie este înca valida, este necesar. Acest serviciu de autenticitate este oferit de certificatele digitale. 
       Certificatele digitale pot fi generate folosind chei publice sau chei private.
       Certificatele digitale pot oferi un nivel ridicat de încredere asupra faptului ca persoana al carei nume apare pe acel certificat are ca si corespondent o anumita cheie publica. Aceasta încredere este realizata prin utilizarea unei terte parti, cunoscuta sub numele de autoritate de certificare (CA - Certificate Authority). O autoritate de certificare semneaza un certificat în calitate de garant pentru identitatea persoanei careia îi apartine certificatul respectiv. 
-      Elementele unui certificat digital definite de acest standard sunt urmatoarele: 
+      <span class="yellowText">Elementele unui certificat digital definite de acest standard sunt urmatoarele: </span>
       <ul>
-        <li>versiunea certificatului (certificate version);</li>
-        <li>numarul de serie (serial number); </li>
-        <li>numele emitentului (issuer name); </li>
-        <li>perioada de valabilitate (period of validity);</li>
-        <li>numele proprietarului certificatului (subject); </li>
-        <li>cheia publica si algoritmul cheii publice (subject's public key info); </li>
-        <li>un câmp optional pentru identificarea subiectului (subject unique identifier); </li>
-        <li>un câmp optional utilizat pentru extensii (extensions);</li>
-        <li>algoritmul folosit pentru semnarea certificatului (certificate signature algorithm); </li>
-        <li>semnatura (signature). 
+        <li><span class="yellowText">versiunea certificatului (certificate version);</span></li>
+        <li><span class="yellowText">numarul de serie (serial number); </span></li>
+        <li><span class="yellowText">numele emitentului (issuer name); </span></li>
+        <li><span class="yellowText">perioada de valabilitate (period of validity);</span></li>
+        <li><span class="yellowText">numele proprietarului certificatului (subject); </span></li>
+        <li><span class="yellowText">cheia publica si algoritmul cheii publice (subject's public key info); </span></li>
+        <li><span class="yellowText">un câmp optional pentru identificarea subiectului (subject unique identifier); </span></li>
+        <li><span class="yellowText">un câmp optional utilizat pentru extensii (extensions);</span></li>
+        <li><span class="yellowText">algoritmul folosit pentru semnarea certificatului (certificate signature algorithm); </span></li>
+        <li><span class="yellowText">semnatura (signature). </span></li>
       </ul>
       <i>Marcarea</i>
       Autenticitatea unui document se poate asigura prin marcaje. Acestea sunt sunt acele elemente distinctive, greu de reprodus, care pot fi folosite deasemenea si pentru identificarea autorului. 
-      Marcajele pot fi vizibile sau ascunse, transparente (watermark). Marcajele pentru imaginile digitale sunt tratate ca manipulari ale celor mai putin semnficativi biti din esantioanele de imagine (LSB - Least Significant Bits), coduri ascunse de marcare, texturi invizibile, constrângeri secrete în domenii de transformare etc
-      Marcajele sunt generate în mod privat si pot fi detectate folosind chei private sau publice, în functie de întrebuintarea lor. 
-      Pentru protejarea dreptului de autor (copyright) se foloseste un marcaj specific, denumit si stampila invizibila, care contine o informatie despre proprietarul legal sau este un semn aleator de unicitate pentru respectivul proprietar. 
+      <span class="yellowText">Marcajele pot fi vizibile sau ascunse, transparente (watermark).</span? Marcajele pentru imaginile digitale sunt tratate ca manipulari ale celor mai putin semnficativi biti din esantioanele de imagine (LSB - Least Significant Bits), coduri ascunse de marcare, texturi invizibile, constrângeri secrete în domenii de transformare etc
+      <span class="yellowText">Marcajele sunt generate în mod privat si pot fi detectate folosind chei private sau publice, în functie de întrebuintarea lor. 
+      </span>Pentru protejarea dreptului de autor (copyright) se foloseste un marcaj specific, denumit si stampila invizibila, care contine o informatie despre proprietarul legal sau este un semn aleator de unicitate pentru respectivul proprietar. 
       Marcajele pentru protejarea informatiei se folosesc astfel:
       <ul>
         <li>fiecare proprietar de copyright detine un set de numere/un numar unic, care constituie cheia privata a marcajului; </li>
@@ -293,16 +367,17 @@ var text = {
         }
       ]
     },
+    //7
     {
-      id: "6",
+      id: "7",
       title: "Politici de Securitate",
       theory: `
       Acestea sunt principiile care stau la baza asigurarii securitatii unei retele de comunicatii si sunt exprimate sub forma unui set de reguli si practici.
       Astfel, trebuie stabilite necesitatile fiecarei categorii de utilizatori cu privire la resursele retelei si drepturile de acces, din interiorul sau din exteriorul acesteia, folosind structura cablata sau accesul wireless la retea. De asemenea, trebuie stabilit care dintre utilizatori au cu adevarat nevoie de acces la reteaua publica de Internet. toate aceste aspecte sunt tratate în cadrul politicii de acces. 
       O bresa în securitatea oricarei retele o reprezinta conexiunea la Internet si la reteaua publica în general deoarece pe aici actioneaza atacurile lansate din afara retelei. Sunt necesare principii clare de securizare a interfetelor dintre reteaua publicasi cea privata. Principiile conform carora se securizeaza caile de acces la Internet si se acorda drepturi în acest sens alcatuiesc politica de acces la Internet (I-AUP - Internet Acceptable Use Policy). 
       Folosirea metodei de autentificare pe baza de nume de utilizator si parola implica aplicarea unor principii de acceptare, gestionare si schimbare a parolelor în cadrul politicii de management a parolelor.
-      Drepturile de acces la retea trebuie diferentiate în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere). 
-      Cunoasterea în detaliu a tuturor echipamentelor care se conecteaza la retea si a garantiilor pe care le ofera fiecare utilizator constituie premiza unor decizii juste cu privire la privilegiile sau restrictiile care se impun în fiecare caz în parte (politica de conectare). 
+      <span class="yellowText">Drepturile de acces la retea trebuie diferentiate în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere). 
+      </span>Cunoasterea în detaliu a tuturor echipamentelor care se conecteaza la retea si a garantiilor pe care le ofera fiecare utilizator constituie premiza unor decizii juste cu privire la privilegiile sau restrictiile care se impun în fiecare caz în parte (politica de conectare). 
       Refuzul accesului la retea pentru acele entitati pentru care se dovedeste intentia de atac, prin monitorizarea traficului, constituie o masura de forta majora, necesara mentinerii functionarii retelei în conditii de siguranta. 
       Vulnerabilitatile de securitate sunt cauzate de diversi factori, printre care neactualizarea sistemelor de operare, programelor antivirus sau a altor programe sau module de securitate. Periodic se impune instalarea celor mai noi versiuni de software, actualizarea bazelor de date cu semnaturile virusilor noi aparuti sau ale altor forme de atac recent identificate. De asemenea, periodic, personalul implicat în asigurarea securitatii retelei trebuie instruit pentru a cunoaste eventualele noi riscuri la care este expusa reteaua si procedurile care trebuie urmate pentru solutionarea problemelor. 
       Periodic trebuie revizuite configurarile diferitelor echipamente din retea pentru a stabili daca ele corespund nevoilor de securitate ale retelei de la un anumit moment, inclusiv parole, liste de control al accesului, adrese MAC, chei de criptare. 
@@ -340,13 +415,14 @@ var text = {
         }
       ]
     },
+    //8
     {
-      id: "7",
+      id: "8",
       title: "Vulnerabilitatea retelelor",
       theory: `
       Deoarece o retea de comunicatii este un sistem complex, eterogen, cu foarte multi utilizatori, ea reprezinta o zona convenabila pentru diferite atacuri. De aceea, securitatea reprezinta un obiectiv operational vital al oricarei retele de comunicatii. 
-      Retelele de calculatoare ale diferitelor organizatii sunt utilizate atât pentru realizarea comunicatiilor dintre angajati, cât si pentru comunicatii externe, astfel încât acestea nu mai pot fi izolate si trebuie securizate la nivelul interfetelor de acces dintre reteaua publicasi cea privata. 
-      În functie de vulnerabilitatile retelei de comunicatii pe care le pot exploata, atacurile se pot manifesta pe mai multe planuri: 
+      <span class="yellowText">Retelele de calculatoare ale diferitelor organizatii sunt utilizate atât pentru realizarea comunicatiilor dintre angajati, cât si pentru comunicatii externe, astfel încât acestea nu mai pot fi izolate si trebuie securizate la nivelul interfetelor de acces dintre reteaua publicasi cea privata. 
+      </span>În functie de vulnerabilitatile retelei de comunicatii pe care le pot exploata, atacurile se pot manifesta pe mai multe planuri: 
       <ul>
         <li>accesare neautorizata a retelei sau a unor resurse ale acesteia din interiorul organizatiei sau din afara acesteia;</li>
         <li>tentative de perturbare sau de întrerupere a functionarii retelei la nivel fizic;</li>
@@ -379,8 +455,9 @@ var text = {
         }
       ]
     },
+    //9
     {
-      id: "8",
+      id: "9",
       title: "Tipuri de atacuri",
       theory: `
       Tinând cont de locul de unde se executa, atacurile pot fi: locale (local), de la distanta (remote). 
@@ -389,8 +466,8 @@ var text = {
       Dupa modul de interactiune a atacatorului cu informatia obtinuta în urma unui atac reusit, se disting doua categorii de atacuri: pasive si active. Este greu de spus care dintre acestea are un risc mai mare. La o prima vedere, s-ar crede ca cele mai periculoase sunt atacurile active. Dar sa nu uitam atacurile pasive prin care se preiau chei de criptare fara ca serverul de chei sa îsi dea seama care sunt cheile compromise. toate informatiile criptate cu acele chei devin astfel complet neprotejate. 
       Cu toate ca nu exista solutii care sa fie capabile sa protejeze reteaua împotriva oricarui tip de atac, exista unele sisteme de securitate care pot reduce substantial sansele si efectele atacurilor. Se impune dezvoltarea unei politici de securitate adecvate fiecarei retele în parte, aplicarea ei simultan cu educatia utilizatorilor si adoptarea unor solutii de securitate, software sau hardware, potrivite vulnerabilitatilor si riscurilor de atac specifice fiecarei retele.
       <i>Atacuri locale</i>
-      Atacurile locale presupun spargerea securitatii unei retele de calculatoare de catre o persoana care face parte din aceasta, adica de catre un utilizator local. 
-      Acesta dispune de un cont si de o parola de utilizator care îi dau drept de acces la o parte din resursele sistemului. De asemenea, persoana respectiva poate sa aiba cunostinte despre arhitectura sistemului de securitate al retelei, putând astfel lansa atacuri mult mai periculoase.
+      <span class="yellowText">Atacurile locale presupun spargerea securitatii unei retele de calculatoare de catre o persoana care face parte din aceasta, adica de catre un utilizator local. 
+      </span>Acesta dispune de un cont si de o parola de utilizator care îi dau drept de acces la o parte din resursele sistemului. De asemenea, persoana respectiva poate sa aiba cunostinte despre arhitectura sistemului de securitate al retelei, putând astfel lansa atacuri mult mai periculoase.
       Riscul de atac local poate fi redus în diferite moduri: 
       <ul>
         <li>acordarea utilizatorilor locali privilegiile minim necesare efectuarii sarcinilor zilnice, potrivit functiei si rolului fiecaruia în companie; </li>
@@ -400,20 +477,20 @@ var text = {
       </ul>
       <i>Atacuri la distanta</i>
       Atacul la distanta (remote attack) este un atac lansat împotriva unei retele de comunicatii sau a unui echipament din retea, fata de care atacatorul nu detine nici un fel de control.
-      Atacul de la distanta se poate realiza în trei etape: 
+      <span class="yellowText">Atacul de la distanta se poate realiza în trei etape:</span> 
       <ol>
-        <li>Prima etapa este una de informare în care atacatorul trebuie sa descopere informatii despre: administratorul retelei, echipamentele din retea si functiile acestora, sisteme de operare folosite, puncte de vulnerabilitate, topologia retelei, politici de securitate etc. Aceasta etapa este considerata un atac în sine, denumit atac de recunoastere (reconnaissance), si consta în maparea neautorizata a unui sistem informatic, a serviciilor si a vulnerabilitatilor lui. Este un pas precedent oricarui atac informatic, prin care se identifica porturi deschise, serviciile active, sisteme de operare, aplicatii rulate, versiuni de software;</li>
-        <li>A doua etapa este una de testare care presupune crearea unei clone a tintei si testarea atacului asupra acesteia, pentru a se vedea modul în care reactioneaza. Realizând aceste experimente pe un calculator-clona, atacatorul nu atrage atentia asupra sa pe durata simularii iar sansele atacului real, care va fi lansat ulterior, vor fi foarte mari. Daca se fac experimente direct pe tinta reala, pentru atacator exista riscul sa fie detectat si se pot alege cele mai eficiente contramasuri;</li>
-        <li>Etapa a treia consta în lansarea atacului asupra retelei. Pentru a avea cele mai mari sanse, atacul trebuie sa dureze putin si sa fie efectuat în intervalele când tinta este mai vulnerabila.</li>
+        <li><span class="yellowText">Prima etapa este una de informare în care atacatorul trebuie sa descopere informatii despre: administratorul retelei, echipamentele din retea si functiile acestora, sisteme de operare folosite, puncte de vulnerabilitate, topologia retelei, politici de securitate etc. Aceasta etapa este considerata un atac în sine, denumit atac de recunoastere (reconnaissance), si consta în maparea neautorizata a unui sistem informatic, a serviciilor si a vulnerabilitatilor lui. Este un pas precedent oricarui atac informatic, prin care se identifica porturi deschise, serviciile active, sisteme de operare, aplicatii rulate, versiuni de software;</span></li>
+        <li><span class="yellowText">A doua etapa este una de testare care presupune crearea unei clone a tintei si testarea atacului asupra acesteia, pentru a se vedea modul în care reactioneaza. Realizând aceste experimente pe un calculator-clona, atacatorul nu atrage atentia asupra sa pe durata simularii iar sansele atacului real, care va fi lansat ulterior, vor fi foarte mari. Daca se fac experimente direct pe tinta reala, pentru atacator exista riscul sa fie detectat si se pot alege cele mai eficiente contramasuri;</span></li>
+        <li><span class="yellowText">Etapa a treia consta în lansarea atacului asupra retelei. Pentru a avea cele mai mari sanse, atacul trebuie sa dureze putin si sa fie efectuat în intervalele când tinta este mai vulnerabila.</span></li>
       </ol>
       <i>Atacuri active</i>
-      Atacurile active au ca scop furtul sau falsificarea informatiilor transmise ori stocate în retea, reducerea disponibilitatii retelei prin supraîncarcarea acesteia cu pachete (flooding), perturbarea sau blocarea comunicatiilor prin atac fizic sau logic asupra echipamentelor din retea si a cailor de comunicatii.
-      Un tip aparte de atac de mascare sau de falsa identitate se produce atunci când atacatorul activeaza în reteaua wireless un echipament neautorizat de tip AP (counterfeiting) care reuseste sa preia date valide de identificare ale utilizatorilor autorizati, în scopul folosirii lor ulterioare pentru accesare neautorizata a retelei asupra careia s-a produs atacul. 
+      <span class="yellowText"> Atacurile active au ca scop furtul sau falsificarea informatiilor transmise ori stocate în retea, reducerea disponibilitatii retelei prin supraîncarcarea acesteia cu pachete (flooding), perturbarea sau blocarea comunicatiilor prin atac fizic sau logic asupra echipamentelor din retea si a cailor de comunicatii.
+      </span>Un tip aparte de atac de mascare sau de falsa identitate se produce atunci când atacatorul activeaza în reteaua wireless un echipament neautorizat de tip AP (counterfeiting) care reuseste sa preia date valide de identificare ale utilizatorilor autorizati, în scopul folosirii lor ulterioare pentru accesare neautorizata a retelei asupra careia s-a produs atacul. 
       Refuzul serviciului (DoS Denial-of-service attack), lansat eventual în varianta distribuita (DDoS - Distributed Denial-of-Service), consta într-o supraîncarcare a serverelor cu cereri din partea atacatorului si consumarea resurselor, astfel încât acele servicii sa nu poata fi oferite si altor utilizatori. Ca urmare a acestui atac, conexiunile existente se închid, fiind necesara reautentificarea utilizatorilor. Atacatorul profita de acest moment pentru aintercepta date de identificare valide, informatii despre retea si conturi de utilizare autorizata. 
       Repudierea serviciului (repudiation) este un alt tip de atac asupra retelelor de comunicatii care se produce atunci când o entitate sau un utilizator refuza sa recunoasca un serviciu deja executat. Nerepudierea serviciului (non-repudiation) este foarte importanta în aplicatiile cu plata care necesita servicii de taxare (billing). Daca utilizatorul neaga folosirea serviciului si refuza plata acestuia, furnizorul trebuie sa dispuna de dovezi solide care sa împiedice repudierea serviciului în context legal. 
       <i>Atacuri criptografice</i>
-      Atacurile criptografice se aplica direct mesajelor cifrate în vederea obtinerii informatiei originale în clar si/sau a cheilor de criptare si de decriptare.
-      Prin definitie, criptanaliza este stiinta spargerii cifrurilor. Criptanalistul este persoana care se ocupa cu criptanaliza mesajelor cu caracter secret. 
+      <span class="yellowText">Atacurile criptografice se aplica direct mesajelor cifrate în vederea obtinerii informatiei originale în clar si/sau a cheilor de criptare si de decriptare.
+      </span>Prin definitie, criptanaliza este stiinta spargerii cifrurilor. Criptanalistul este persoana care se ocupa cu criptanaliza mesajelor cu caracter secret. 
       Se cunosc mai multe tipuri de atacuri criptografice: 
       <ul>
         <li>brut (brute force), prin încercarea tuturor combinatiilor posibile fie de chei de criptare, fie de simboluri din text pentru deducerea textului în clar;</li>
@@ -446,22 +523,23 @@ var text = {
         }
       ]
     },
+    //10
     {
-      id: "9",
+      id: "10",
       title: "Protocoale si servere de Securitate",
       theory: `
       <i>Protocoale TCP/IP</i>
       Serviciile internet au la baza schimbul de mesaje intre o sursa si un destinatar. Principiul comunicarii este inspirat din sistemul postal. Unitatea de date astfel obtinuta se numeste 'pachet', prin analogie cu sistemul postal obisnuit.
-      IP asigura livrarea pachetelor numai daca in functionarea retelelor nu apar erori. Daca un mesaj este prea lung, IP cere fragmentarea lui in mai multe pachete. Transmiterea pachetelor IP se face intre calculatoare gazda si nu direct, intre programele de aplicatie. Din aceste motive, protocolul IP este completat cu un altul, numit TCP (Transmission Control Protocol), care face fragmentarea si asigura transmiterea corecta a mesajelor intre utilizatori. Pachetele unui mesaj sunt numerotate, putandu-se verifica primirea lor in forma in care au fost transmise si reconstituirea mesajelor lungi, formate din mai multe pachete.
+      IP asigura livrarea pachetelor numai daca in functionarea retelelor nu apar erori. Daca un mesaj este prea lung, IP cere fragmentarea lui in mai multe pachete.<span class="yellowText"> Transmiterea pachetelor IP se face intre calculatoare gazda si nu direct, intre programele de aplicatie. </span>Din aceste motive, protocolul IP este completat cu un altul, numit TCP (Transmission Control Protocol), care face fragmentarea si asigura transmiterea corecta a mesajelor intre utilizatori. Pachetele unui mesaj sunt numerotate, putandu-se verifica primirea lor in forma in care au fost transmise si reconstituirea mesajelor lungi, formate din mai multe pachete.
       Protocoalele sunt grupate pe nivele. Aceasta grupare respecta principiul stratificarii: protocoalele sunt astfel proiectate incat nivelul N al destinatiei sa primeasca (fara modificari) obiectul transmis de nivelul N al sursei. Pentru respectarea acestui principiu, definitia oricarui protocol trebuie sa stabileasca doua aspecte: formatui unitatilor de date manipulate si actiunile posibile ale entitatilor de protocol care concura la realizarea serviciilor specifice protocolului. 
       Aplicatia sursa din sistemul terminal 1 comunica un mesaj modulului TCP. Acesta construieste un pachet pe care nivelul IP il paseaza ca o datagrama subretelei a. in sistemul intermediar, datagrama ajunge la modulul IP care il ruteaza subretelei b. In sistemul terminal 2, IP extrage mesajul si il transmite aplicatiei receptor prin intermediul modulului TCP. Sa observam ca in sistemul intermediar, pentru receptia dirijarea si retransmiterea datagramelor, sunt necesare doar niveiele IP si interfata de retea.
       <i>Protocoale IPv4</i>
-      Datele sunt trimise sub forma unor blocuri de caractere, numite datagrame sau pachete. Fiecare pachet este prefatat de un mic ansamblu de octeti, numit header (”antet”), urmat de datele propriu-zise, ce formeaza continutul pachetului. Dupa sosire la destinatie, datele transmise sub forma unor pachete distincte sunt reasamblate in unitati logice de tip fisier, mesaj etc. internet-ul comuta pachetele pe diferite rute de la sursa la destinatie, numindu-se, de aceea, retea cu comutare de pachete.
+      <span class="yellowText">Datele sunt trimise sub forma unor blocuri de caractere, numite datagrame sau pachete.</span> Fiecare pachet este prefatat de un mic ansamblu de octeti, numit header (”antet”), urmat de datele propriu-zise, ce formeaza continutul pachetului. Dupa sosire la destinatie, datele transmise sub forma unor pachete distincte sunt reasamblate in unitati logice de tip fisier, mesaj etc. internet-ul comuta pachetele pe diferite rute de la sursa la destinatie, numindu-se, de aceea, retea cu comutare de pachete.
       Exista trei cai distincte pentru conectarea a doua claculatoare, folosind protocolul IP. Cele doua calculatoare pot fi in aceeasi retea locala (Ethernet sau Token Ring). In acest caz, pachetele sunt incapsulate in pachetele folosite de protocoalele LAN; Cele doua calculatoare sunt direct legate printr-o linie seriala. Pachetele IP sunt transmise folosind unul din protocoalele SLIP (Serial Line Internet Protocol). CSLIP (Compressed SLIP) sau PPP (Point-to Point Protocol). Daca cele doua calculatoare sunt conectate fiecare la cate o retea locala linia telefonica leaga cele doua LAN-uri prin intermediul unor bridge-uri; Pachetele IP pot fi incapsulate in interiorul altor pachete folosite de alte protocoale retea. 
       <i>Securitatea TCP/IP</i>
       Conectarea unui calculator la internet presupune, in general, folosirea sistemului de operare UNIX si a suitei de protocoale TCP/IP. Aceste componente au propriile lor probleme de securitate, evidentiate in sectiunile anterioare ale cartii. Accesul la internet presupune, insa, si folosirea unui set de cateva zeci de servicii, programe, cu numeroase probleme de securitate, fie datorita unor erori in software, fie datorita neincorporarii unor facilitati de securitate potrivite. in general, pentru ca un utilizator sa poata lua masurile de securitate adecvate la conectarea in retea, el trebuie sa inteleaga modul in care sistemul de operare UNIX lucreaza cu internet -ul. Tocmai de aceea, acest paragraf explica cum functioneaza serviciile TCP/IP si evidentiaza care sunt problemele de securitate ale fiecaruia dintre ele.
       <i>Firewall</i>
-      Pentru stiinta calculatoarelor, probabil ca cel mai usor este sa descriem, mai intai, ceea ce un firewall nu este: un firewall nu este un simplu ruter sau un calculator gazda care asigura securitatea unei retele. in linii mari, un firewall (numit uneori si pasarela de securitate) este un sistem care impune o politica de control al accesului intre doua retele. Un firewall reprezinta implementarea acestei politici in termeni de configurare a retelei, unul sau mai multe sisteme gazda si ruter-e cu functiuni speciale, alte masuri de securitate, cum ar fi autentificarea prin metode criptografice a clientilor.
+      Pentru stiinta calculatoarelor, probabil ca cel mai usor este sa descriem, mai intai, ceea ce un firewall nu este: un firewall nu este un simplu ruter sau un calculator gazda care asigura securitatea unei retele. in linii mari, <span class="yellowText">un firewall (numit uneori si pasarela de securitate) este un sistem care impune o politica de control al accesului intre doua retele.</span> Un firewall reprezinta implementarea acestei politici in termeni de configurare a retelei, unul sau mai multe sisteme gazda si ruter-e cu functiuni speciale, alte masuri de securitate, cum ar fi autentificarea prin metode criptografice a clientilor.
       Deoarece un firewall este dispus la intersectia dintre doua retele, acesta poate fi folosit si in alte scopuri decat acela de control al accesului:
       <ul>
         <li>pentru a monitoriza comunicatiile dintre o retea interna si o retea externa. De exemplu, un firewall poate monitoriza seviciile folosite si cantitatea de date transferata prin conexiuni TCP/IP intre propria organizatie si lumea exterioara;</li>
@@ -469,16 +547,16 @@ var text = {
         <li>daca o organizatie are mai multe retele, separate din punct de vedere geografic, fiecare avand cate un firewall, exista posibilitatea programarii acestor firewall-uri pentru a cripta automat continutul pachetelor transmise intre ele. in acest fel, pe suportul internet, organizatia isi poate realiza propria retea virtuala privata.</li>
       </ul>
       <i>Sisteme de detectie a intrusilor</i>
-      Sistemele de detectie a intrusilor (IDS - Intrusion Detection System) sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite. 
-      Sistemele IDS detecteaza atacurile asupra retelei, alerteaza personalul de administrare si eventual declanseaza actiuni de raspuns, cum ar fi plasarea în carantina a anumitor procese pâna la clarificarea situatiei. Pot exista si alarme false dar procedurile aplicate în prima faza nu vor face decât sa întârzie anumite transmisii. 
+      <span class="yellowText">Sistemele de detectie a intrusilor (IDS - Intrusion Detection System) sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite. 
+      </span>Sistemele IDS detecteaza atacurile asupra retelei, alerteaza personalul de administrare si eventual declanseaza actiuni de raspuns, cum ar fi plasarea în carantina a anumitor procese pâna la clarificarea situatiei. Pot exista si alarme false dar procedurile aplicate în prima faza nu vor face decât sa întârzie anumite transmisii. 
       <i>VPN – Retele private virtuale</i>
       Un VPN este o retea de comunicatii privata, folosita de obicei în cadrul uneia sau mai multor organizatii, pentru a comunica în mod confidential, prin intermediul unei retele publice. 
       Mesajele din traficul VPN pot fi transmise prin intermediul infrastructurii unei retele publice de date, precum Internet-ul, folosind protocoalele standard, sau prin intermediul unei retele private a furnizorului de servicii Internet. 
       VPN-ul este o solutie eficienta din punctul de vedere al costurilor, pentru ca diferite organizatii sa poata asigura accesul la reteaua interna pentru angajatii si colaboratorii aflati la distanta, si pentru a 
-      Termenul de VPN descrie doua modalitati de abordare a problemei retelelor private care au ca suport o retea publica, din punctul de vedere al accesibilitatii: 
-      <ol>
-        <li>VPN-uri realizate între mai multe retele locale (LAN-to-LAN VPNs, cunoscute si sub denumirea de Site-to-Site VPNs) care conecteaza la un nod central mai multe LAN-uri diferite aflate la mare distanta unele fata de altele dar care fac parte din acelasi intranet, astfel încât sa asigure conectivitatea între ele;</li>
-        <li>VPN-uri de acces de la distanta (Remote Access VPNs) care asigura accesul de la distanta la o retea privata, de exemplu pentru utilizatorii de Internet mobil. </li>
+      <span class="yellowText">Termenul de VPN descrie doua modalitati de abordare a problemei retelelor private care au ca suport o retea publica, din punctul de vedere al accesibilitatii: 
+      </span><ol>
+        <li><span class="yellowText">VPN-uri realizate între mai multe retele locale (LAN-to-LAN VPNs, cunoscute si sub denumirea de Site-to-Site VPNs) care conecteaza la un nod central mai multe LAN-uri diferite aflate la mare distanta unele fata de altele dar care fac parte din acelasi intranet, astfel încât sa asigure conectivitatea între ele;</span></li>
+        <li><span class="yellowText">VPN-uri de acces de la distanta (Remote Access VPNs) care asigura accesul de la distanta la o retea privata, de exemplu pentru utilizatorii de Internet mobil. </span></li>
       </ol>
       La nivelul de transport, s-au impus mai multe protocoale de securitate: 
       <ol>
@@ -510,16 +588,18 @@ var text = {
         }
       ]
     },
+    //11
     {
-      id: "10",
+      id: "11",
       title: "Concluzii",
       theory: `
         Exista numeroase probleme control al accesului si de securitate a retelei care trebuie luate in considerare in implementarea si mentinerea unui sistem client-server. Desi exista un numar mare de instrumente pentru functiile de securitate, acestea sunt semnificativ mai putine pentru acest tip de sistem.
 	      Pentru a evita eventualele brese de securitate trebuie analizata securitatea modurilor de stocare dar si a canalelor de transfer de date, verificarea criptarii datelor si accesibilitatea acestora catre public.
       `
     },
+    //12
     {
-      id: "11",
+      id: "12",
       title: "Referințe",
       theory: `
       <ol>
