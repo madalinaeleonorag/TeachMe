@@ -29,3 +29,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .yellowText {
+    background-color: yellow;
+  }
+</style>

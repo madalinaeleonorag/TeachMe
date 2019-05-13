@@ -18,7 +18,7 @@
       <v-flex xs12 sm12 v-if="showTitle">
         <v-progress-linear color="blue" height="20" :value="(chapterNumber *100)/10"></v-progress-linear>
         <v-card color="white">
-          <div class="text-xs-center" v-if="actualChapter.id === '11'">
+          <div class="text-xs-center" v-if="actualChapter.id === '12'">
             <v-card-text
               class="text-xs-center"
             >{{ ((correctQuestions * 100)/allQuestions) >= 80 ? 'Felicitari!' : 'Mai incearca!'}}</v-card-text>
@@ -64,7 +64,7 @@
             </v-card-text>
           </div>
           <v-card-actions
-            v-if="(!actualChapter.questions && (actualChapter.id != '11'))  || (answersSeen === true)"
+            v-if="(!actualChapter.questions && (actualChapter.id != '12'))  || (answersSeen === true)"
           >
             <v-spacer></v-spacer>
             <v-btn @click="nextChapter()">Urmatoarea lectie</v-btn>
@@ -102,7 +102,7 @@ export default {
       this.questionShow = index;
     },
     breakIt(value) {
-      if (this.actualChapter.id === "11") {
+      if (this.actualChapter.id === "12") {
         return value;
       } else {
         let subtitleCheckForBr1 = value.split("<i>").join("<br><i>");
