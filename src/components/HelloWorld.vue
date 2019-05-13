@@ -1,7 +1,21 @@
 <template>
-  <v-container fluid grid-list-lg>
+  <v-container fluid >
     <v-layout row wrap>
-      <v-flex xs12 sm12>
+      <v-layout align-center justify-center column fill-height v-if="!showTitle">
+        <v-flex xs12 sm12 class="text-xs-center">
+          <v-img src="https://static1.squarespace.com/static/55d1e076e4b0be96a30dc726/t/56d97e0204426228b2ce15aa/1496844618749/computerworld_security_icon" 
+          max-height="300px" contain></v-img>
+          <div class="display-4 text-uppercase">
+            <span class="blue--text">TeachMe</span>
+            <span class="font-weight-light grey--text">SECURE</span>
+          </div> 
+          <div class="display-2">
+            este o  aplicatie ce ajuta la insusirea informatiilor despre securitatea arhitecturii client-server
+          </div>
+          <v-btn color="info" @click="showTitle = !showTitle">START</v-btn>
+        </v-flex>
+      </v-layout>
+      <v-flex xs12 sm12 v-if="showTitle">
         <v-progress-linear color="blue" height="20" :value="(chapterNumber *100)/10"></v-progress-linear>
         <v-card color="white">
           <div class="text-xs-center" v-if="actualChapter.id === '11'">
@@ -75,8 +89,9 @@ export default {
     answers: [],
     seeAnswersVar: false,
     answersSeen: false,
-    allQuestions: 10,
-    correctQuestions: 8
+    allQuestions: 0,
+    correctQuestions: 0,
+    showTitle: null
   }),
   created() {
     this.database = db.default.chapters;
