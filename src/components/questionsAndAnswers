@@ -4,47 +4,52 @@ Din punct de vedere al criteriului domeniului de utilizare informatiile pot fi?
 A: publicitare, comerciale, educationale, de divertisment, cu sau fara plata, guvernamentale si militare
 
 Modele de Securitate
+
 Care sunt nivelele pentru securitatea unei retea de calcuatoare?
-A: fizic, logic si informational
+C: fizic, logic si informational
 
 De ce tip sunt caile fizice de comunicatie?
-A: de tip radio sau cablate
+B: de tip radio sau cablate
 
 De ce tip sunt caile de transmisie?
 A: de tip up-link si down-link
 
 Pe ce baza se stabileste metrica de securitate?
-A: Metrica de securitate se va stabili pe baza riscului de securitate pe care îl prezinta un anumit element din graful retelei
+D: Metrica de securitate se va stabili pe baza riscului de securitate pe care îl prezinta un anumit element din graful retelei
 
 Securitatea fizica
 Conform statisticilor cat % din atacuri pornesc din interiorul retelei?
-A: 80 % din atacuri pornesc din interiorul retelei
+D: 80 % din atacuri pornesc din interiorul retelei
+
+Securitatea logica
+
+Care sunt nivelele de securitate logica?
+A: nivelul accesului si al serviciilor
 
 Securitatea informatiilor
-Tehnica Hash
-Cum se clasifica functiile hash?
-A: coduri de detectie modificate si coduri de autentificare a mesajelor
 
-Semnatura digitala
+Cum se clasifica functiile hash?
+C: coduri de detectie modificate si coduri de autentificare a mesajelor
+
 Ce este semnatura digitala?
 A: un tip de criptare asimetrica, asemanator semnaturilor de mâna, folosita pentru a identifica un individ din punct de vedere legal
 
-Certificatul digital
 Care sunt elementele unui certificat digital?
-A: versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura
+B: versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura
 
-Marcarea
 Cum pot fi marcajele?
 A: vizibile, ascunse si transparente
 
 Cum sunt generate marcajele?
-A: în mod privat si pot fi detectate folosind chei private sau publice
+D: în mod privat si pot fi detectate folosind chei private sau publice
 
 Politici de Securitate
+
 Cum trebuie sa fie drepturile de securitate?
-A: trebuie diferentiate în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)
+D: trebuie diferentiate în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)
 
 Vulnerabilitatea retelelor
+
 De se folosesc retelele de calculatoare?
 A: sunt utilizate atât pentru realizarea comunicatiilor dintre angajati, cât si pentru comunicatii externe
 
@@ -57,10 +62,10 @@ Cate etape sunt enumerate in text pentru a putea fi realizat un atac la distanta
 A: 3
 
 Care este scopul atacurilor active?
-A: furtul, falsificarea informatiilor, flooding, perturbarea sau blocarea comunicatiilor
+B: furtul, falsificarea informatiilor, flooding, perturbarea sau blocarea comunicatiilor
 
 Unde putem gasi un atac criptografic?
-A: se aplica direct mesajelor cifrate în vederea obtinerii informatiei originale în clar si/sau a cheilor de criptare si de decriptare.
+B: se aplica direct mesajelor cifrate în vederea obtinerii informatiei originale în clar si/sau a cheilor de criptare si de decriptare.
 
 Protocoale si servere de Securitate
 
@@ -68,14 +73,14 @@ Cum se face transmiterea pachetelor IP?
 A: se face intre calculatoare gazda, dar nu direct
 
 Cum sunt trimise datele cu ajutorul protocoalelor Ipv4?
-A: datele sunt trimise sub forma unor blocuri de caractere, numite datagrame sau pachete
+C: datele sunt trimise sub forma unor blocuri de caractere, numite datagrame sau pachete
 
 Ce este un Firewall?
-A: este un sistem care impune o politica de control al accesului intre doua retele
+D: este un sistem care impune o politica de control al accesului intre doua retele
 
 Ce reprezinta un IDS?
 A: sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite. 
 
 Din punctul de vedere al accesibilitatii, care sunt cele doua modalitati de abordare a problemei retelelor private care au ca suport o retea publica:
-A: VPN-uri de acces de la distannta si VPN-uri realizate intre mai multe retele locale
+B: VPN-uri de acces de la distannta si VPN-uri realizate intre mai multe retele locale
 
