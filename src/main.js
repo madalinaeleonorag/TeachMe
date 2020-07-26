@@ -35,14 +35,7 @@ const router = new IonicVueRouter({
           components: {
             tab1Route: () => import("@/components/Tab1Details.vue"),
           },
-        },
-        {
-          path: "tab2",
-          name: "tab2",
-          components: {
-            tab2Route: () => import("@/components/Tab2.vue"),
-          },
-        },
+        }
       ],
     },
     { path: "/", redirect: "tabs/tab1" },
