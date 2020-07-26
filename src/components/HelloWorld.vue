@@ -1,4 +1,5 @@
 <template>
+<ion-page>
   <v-container fluid >
     <v-layout row wrap>
       <v-layout align-center justify-center column fill-height v-if="!showTitle">
@@ -9,6 +10,9 @@
             <span class="blue--text">TeachMe</span>
             <span class="font-weight-light grey--text">SECURE</span>
           </div> 
+          <ion-fab-button >
+          <ion-icon name="add" />
+        </ion-fab-button>
           <div class="display-2">
             este o  aplicatie ce ajuta la insusirea informatiilor despre securitatea arhitecturii client-server
           </div>
@@ -73,10 +77,17 @@
       </v-flex>
     </v-layout>
   </v-container>
+</ion-page>
 </template>
 
 <script>
-import * as db from "@/components/db";
+import * as db from "../db";
+import { add } from "ionicons/icons";
+import { addIcons } from "ionicons";
+addIcons({
+  "ios-add": add.ios,
+  "md-add": add.md
+});
 export default {
   name: "HelloWorld",
   data: () => ({

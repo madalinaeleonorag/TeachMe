@@ -1,37 +1,36 @@
 <template>
-  <v-app>
-    <v-toolbar app color="black">
-      <v-toolbar-title class="headline text-uppercase">
-        <span class="blue--text">TeachMe</span>
-        <span class="font-weight-light white--text">SECURE</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+  <div id="app">
+    <ion-app>
+           <ion-vue-router main></ion-vue-router>
+    </ion-app>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
+  name: "App",
+  data() {
     return {
       //
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style>
-  .yellowText {
-    background-color: yellow;
-  }
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+ion-navbar.toolbar.toolbar-ios.statusbar-padding,
+ion-navbar.toolbar-ios ion-title.title-ios,
+ion-toolbar.toolbar.toolbar-ios.statusbar-padding,
+ion-toolbar.toolbar-ios ion-title.title-ios {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
 </style>
