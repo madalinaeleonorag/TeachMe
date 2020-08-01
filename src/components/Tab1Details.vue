@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
           <ion-back-button default-href="/"></ion-back-button>
         </ion-buttons>
-        <ion-title>Learn</ion-title>
+        <ion-title>{{this.courseDetails.name}} </ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content padding>
@@ -46,10 +46,10 @@
               >
             </v-card-text>
           </div>
-          <v-card-title class="blue--text font-weight-bold">{{
+        <v-card-title class="blue--text font-weight-bold">{{
             actualChapter.title
           }}</v-card-title>
-          <v-card-text
+        <v-card-text
             class="black--text"
             v-html="breakIt(actualChapter.theory)"
           ></v-card-text>
@@ -87,7 +87,7 @@
               </v-card-actions>
             </v-card-text>
           </div>
-          <v-card-actions
+         <v-card-actions
             v-if="
               (!actualChapter.questions && actualChapter.id != '12') ||
                 answersSeen === true
@@ -107,7 +107,7 @@ import * as db from "../db";
 export default {
   name: "tab1Details",
   data: () => ({
-    database: null,
+    courseDetails: null,
     questionShow: false,
     actualChapter: null,
     chapterNumber: 0,
@@ -117,11 +117,12 @@ export default {
     seeAnswersVar: false,
     answersSeen: false,
     allQuestions: 0,
-    correctQuestions: 0
+    correctQuestions: 0,
   }),
   created() {
-    this.database = db.default.chapters;
-    this.actualChapter = this.database[this.chapterNumber];
+    this.courseDetails = this.$route.params.course;
+    console.log(this.courseDetails)
+    this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
   },
   methods: {
     showQuestions(index) {
@@ -142,7 +143,7 @@ export default {
     },
     tryAgain() {
       this.chapterNumber = 0;
-      this.actualChapter = this.database[this.chapterNumber];
+      this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
     },
     nextChapter() {
       if (this.actualChapter.questions) {
@@ -150,7 +151,7 @@ export default {
           this.allQuestions + this.actualChapter.questions.length;
       }
       this.chapterNumber = this.chapterNumber + 1;
-      this.actualChapter = this.database[this.chapterNumber];
+      this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
       this.questionShow = false;
       this.radios = null;
       this.answers = [];
@@ -193,6 +194,7 @@ export default {
     },
   },
   onCreate() {},
+
 };
 </script>
 
