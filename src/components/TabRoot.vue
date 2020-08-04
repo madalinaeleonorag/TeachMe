@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-page"> 
+  <div class="ion-page">
     <ion-tabs>
       <ion-tab tab="tab1" :routes="['tab1', 'tab1-details']" :to="{name:'tab1'}">
         <ion-vue-router name="tab1Route"></ion-vue-router>
@@ -9,14 +9,19 @@
 </template>
 
 <script>
-import { map } from "ionicons/icons";
 import { addIcons } from "ionicons";
+import { star, lockClosedOutline, addCircle } from "ionicons/icons";
+
 addIcons({
-  "ios-map": map.ios,
-  "md-map": map.md
+  "ios-star": star,
+  "md-star": star,
+  "ios-lock-closed": lockClosedOutline,
+  "md-lock-closed": lockClosedOutline,
+  "ios-add-circle": addCircle,
+  "md-add-circle": addCircle,
 });
 export default {
   name: "TabRoot",
-  props: {}
+  props: {},
 };
 </script>

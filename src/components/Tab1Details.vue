@@ -1,27 +1,25 @@
 <template>
-  <div class="ion-page">
+  <div>
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar class="toolbar-style">
         <ion-buttons slot="start">
-          <ion-back-button default-href="/"></ion-back-button>
+           <ion-back-button default-href="/" text="" color='light'></ion-back-button>
         </ion-buttons>
-        <ion-title>{{this.courseDetails.name}} </ion-title>
+        <ion-title>{{this.courseDetails.name}}</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding>
+    <ion-content padding class="hp-style">
       <v-flex xs12 sm12>
-        <v-progress-linear
-          color="blue"
-          height="20"
-          :value="(chapterNumber * 100) / 10"
-        ></v-progress-linear>
-        <v-card color="white">
+        <v-progress-linear color="blue" height="20" :value="(chapterNumber * 100) / 10"></v-progress-linear>
+        <v-card>
           <div class="text-xs-center" v-if="actualChapter.id === '12'">
-            <v-card-text class="text-xs-center">{{
+            <v-card-text class="text-xs-center">
+              {{
               (correctQuestions * 100) / allQuestions >= 80
-                ? "Felicitari!"
-                : "Mai incearca!"
-            }}</v-card-text>
+              ? "Felicitari!"
+              : "Mai incearca!"
+              }}
+            </v-card-text>
             <v-progress-circular
               :rotate="360"
               :size="100"
@@ -35,36 +33,29 @@
                   ? 'orange'
                   : 'red'
               "
-              >{{
-                Math.round(((correctQuestions * 100) / allQuestions) * 100) /
-                  100
-              }}</v-progress-circular
             >
+              {{
+              Math.round(((correctQuestions * 100) / allQuestions) * 100) /
+              100
+              }}
+            </v-progress-circular>
             <v-card-text>
-              <v-btn flat color="blue" @click="tryAgain()"
-                >Incearca din nou</v-btn
-              >
+              <v-btn flat color="blue" @click="tryAgain()">Incearca din nou</v-btn>
             </v-card-text>
           </div>
-        <v-card-title class="blue--text font-weight-bold">{{
+          <v-card-title class="chapter-title">
+            {{
             actualChapter.title
-          }}</v-card-title>
-        <v-card-text
-            class="black--text"
-            v-html="breakIt(actualChapter.theory)"
-          ></v-card-text>
+            }}
+          </v-card-title>
+          <v-card-text class="theory-text" v-html="breakIt(actualChapter.theory)"></v-card-text>
           <div v-if="actualChapter.questions">
-            <v-card-text v-if="!questionShow">
-              <v-btn @click="questionShow = !questionShow"
-                >Arata intrebarile!</v-btn
-              >
+            <v-card-text v-if="!questionShow" class='show-questions'>
+               <ion-button color='light' fill='clear' @click="questionShow = !questionShow">Arata intrebarile!</ion-button>
             </v-card-text>
-            <v-card-text v-if="questionShow">
-              <v-card-text
-                v-for="(question, index) in actualChapter.questions"
-                :key="index"
-              >
-                <label class="blue--text">{{ question.question }}</label>
+            <v-card-text v-if="questionShow" class='see-answears'>
+              <v-card-text v-for="(question, index) in actualChapter.questions" :key="index">
+                <label class="chapter-title">{{ question.question }}</label>
                 <v-radio-group column>
                   <v-radio
                     :label="answer.answer"
@@ -77,24 +68,23 @@
                   ></v-radio>
                 </v-radio-group>
               </v-card-text>
-              <v-card-actions>
+              <v-card-actions class='see-answears'>
                 <v-spacer></v-spacer>
-                <v-btn
-                  @click="seeAnswers()"
+                 <ion-button color='light' fill='clear' 
+                 @click="seeAnswers()"
                   v-if="seeAnswersVar === false && answersSeen === false"
-                  >Vezi raspunsuri</v-btn
-                >
+                 >Vezi raspunsuri</ion-button>
               </v-card-actions>
             </v-card-text>
           </div>
-         <v-card-actions
-            v-if="
+          <v-card-actions class='next-chapter'
+             v-if="
               (!actualChapter.questions && actualChapter.id != '12') ||
                 answersSeen === true
             "
           >
             <v-spacer></v-spacer>
-            <v-btn @click="nextChapter()">Urmatoarea lectie</v-btn>
+            <ion-button color='light' fill='clear' @click="nextChapter()">Urmatoarea lectie</ion-button>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -103,7 +93,6 @@
 </template>
 
 <script>
-import * as db from "../db";
 export default {
   name: "tab1Details",
   data: () => ({
@@ -121,7 +110,6 @@ export default {
   }),
   created() {
     this.courseDetails = this.$route.params.course;
-    console.log(this.courseDetails)
     this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
   },
   methods: {
@@ -194,12 +182,39 @@ export default {
     },
   },
   onCreate() {},
-
 };
 </script>
 
 <style>
 .v-progress-circular {
   margin: 1rem;
+}
+.toolbar-style {
+  --background: rgb(45, 65, 89);
+  color: white;
+}
+.hp-style {
+  --background: rgb(36, 43, 62);
+}
+.chapter-title{
+  color: white;
+  background-color: rgb(36, 43, 62);
+}
+.theory-text {
+  color: white;
+  background-color: rgb(36, 43, 62);
+}
+.next-chapter {
+  color: white;
+  background-color: rgb(36, 43, 62);
+}
+.show-questions {
+  color: white;
+  background-color: rgb(36, 43, 62);
+
+}
+.see-answears {
+    color: white;
+  background-color: rgb(36, 43, 62);
 }
 </style>

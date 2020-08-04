@@ -3,23 +3,23 @@
     <ion-toolbar class="toolbar-style">
       <ion-title>Teach me secure</ion-title>
     </ion-toolbar>
-      <ion-card v-for="category in categories" :key="category.id" class='card-style'>
-          <ion-item lines="none" class="category-title">{{category.name}}</ion-item>
-        <ion-item lines="none" class="category-description" @click="showAllCourses(category)">
-          <ion-label>Click to see our courses</ion-label>
+    <ion-card v-for="category in categories" :key="category.id" class="card-style" @click="showAllCourses(category)">
+      <ion-item lines="none" class="category-title">
+        <ion-icon :name="category.icon" class="icon-style"></ion-icon>
+        <ion-label >{{category.name}}</ion-label>
           <ion-chip outline class="chip-style">
-            <ion-label>{{category.courses.length}} courses</ion-label>
-          </ion-chip>
-        </ion-item>
-        <div v-show="selectedCategory === category.name">
+          <ion-label>{{category.courses.length}} courses</ion-label>
+        </ion-chip>
+      </ion-item>
+
+      <div v-show="selectedCategory === category.name">
         <ion-slides ref="categories" pager="false" scrollbar="false" class="slider-container">
           <ion-slide class="slider" v-for="course in category.courses" :key="course.id">
             <div class="slide-content" @click="viewCourse(course)">{{ course.name }}</div>
           </ion-slide>
         </ion-slides>
       </div>
-      </ion-card>
-      
+    </ion-card>
   </ion-content>
 </template>
 
@@ -60,17 +60,11 @@ export default {
 
 <style>
 .category-title {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
   --background: rgb(48, 70, 90);
-  color: white
-  
+  color: white;
 }
-.category-description {
-  font-size: 12px;
-  color: #c2c2c2;
-  --background: rgb(48, 70, 90);
-}
+
 .slider-container {
   width: 300px;
 }
@@ -94,7 +88,7 @@ export default {
   padding-left: 7px;
   padding-right: 7px;
   color: white;
-  font-size: 12px;
+  font-size: 10px;
 }
 .hp-style {
   --background: rgb(36, 43, 62);
@@ -104,7 +98,14 @@ export default {
   color: white;
 }
 .card-style {
-  border-radius: 10px;
+  border-radius: 5px;
   --background: rgb(48, 70, 90);
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+.icon-style{
+color: rgb(232, 129, 52);
+font-size: large;
+
 }
 </style>

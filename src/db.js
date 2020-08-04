@@ -3,7 +3,7 @@ let categories = [
   {
     id: 1,
     name: "Security",
-    icon: "",
+    icon: "md-lock-closed",
     courses: [
       {
         id: 1, name: "Security 1", chapters: [
@@ -864,7 +864,7 @@ let categories = [
   {
     id: 2,
     name: "Category 2",
-    icon: "",
+    icon: "star",
     courses: [
       { id: 1, name: "Course 1" },
       { id: 2, name: "Course 2" },
@@ -874,7 +874,7 @@ let categories = [
   {
     id: 3,
     name: "Category 3",
-    icon: "",
+    icon: "md-add-circle",
     courses: [
       { id: 1, name: "Course 1" },
       { id: 2, name: "Course 2" },
