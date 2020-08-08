@@ -91,7 +91,7 @@ export default {
   font-size: 10px;
 }
 .hp-style {
-  --background: rgb(36, 43, 62);
+  --background: black;
 }
 .toolbar-style {
   --background: rgb(45, 65, 89);

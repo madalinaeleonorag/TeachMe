@@ -3,92 +3,117 @@
     <ion-header>
       <ion-toolbar class="toolbar-style">
         <ion-buttons slot="start">
-           <ion-back-button default-href="/" text="" color='light'></ion-back-button>
+          <ion-back-button
+            default-href="/"
+            text=""
+            color="light"
+          ></ion-back-button>
+          {{ courseDetails.chapters.length }}
         </ion-buttons>
-        <ion-title>{{this.courseDetails.name}}</ion-title>
+        <ion-title>{{ this.courseDetails.name }}</ion-title>
       </ion-toolbar>
+      <ion-progress-bar
+        class="progress-bar"
+        :value="chapterNumber / courseDetails.chapters.length"
+      ></ion-progress-bar>
     </ion-header>
     <ion-content padding class="hp-style">
       <v-flex xs12 sm12>
-        <v-progress-linear color="blue" height="20" :value="(chapterNumber * 100) / 10"></v-progress-linear>
         <v-card>
-          <div class="text-xs-center" v-if="actualChapter.id === '12'">
-            <v-card-text class="text-xs-center">
-              {{
-              (correctQuestions * 100) / allQuestions >= 80
-              ? "Felicitari!"
-              : "Mai incearca!"
-              }}
-            </v-card-text>
-            <v-progress-circular
-              :rotate="360"
-              :size="100"
-              :width="15"
-              :value="(correctQuestions * 100) / allQuestions"
-              :color="
-                (correctQuestions * 100) / allQuestions >= 80
-                  ? 'green'
-                  : (correctQuestions * 100) / allQuestions < 80 ||
-                    (correctQuestions * 100) / allQuestions >= 50
-                  ? 'orange'
-                  : 'red'
-              "
-            >
-              {{
-              Math.round(((correctQuestions * 100) / allQuestions) * 100) /
-              100
-              }}
-            </v-progress-circular>
-            <v-card-text>
-              <v-btn flat color="blue" @click="tryAgain()">Incearca din nou</v-btn>
-            </v-card-text>
-          </div>
-          <v-card-title class="chapter-title">
-            {{
-            actualChapter.title
-            }}
+          <!-- chapter text -->
+          <v-card-title class="chapter-title" v-if="showQuiz === false">
+            {{ actualChapter.title }}
           </v-card-title>
-          <v-card-text class="theory-text" v-html="breakIt(actualChapter.theory)"></v-card-text>
-          <div v-if="actualChapter.questions">
-            <v-card-text v-if="!questionShow" class='show-questions'>
-               <ion-button color='light' fill='clear' @click="questionShow = !questionShow">Arata intrebarile!</ion-button>
+          <v-card-text
+            class="theory-text"
+            v-if="showQuiz === false"
+            v-html="breakIt(actualChapter.theory)"
+          ></v-card-text>
+          <!-- quiz text -->
+          <v-card-title class="chapter-title" v-if="showQuiz === true">
+            QUIZ
+          </v-card-title>
+          <v-card-text v-if="showQuiz === true">
+            <v-card-text
+              v-for="(question, index) in courseDetails.questions"
+              :key="index"
+            >
+              <label class="chapter-title">{{ question.question }}</label>
+              <v-radio-group column>
+                <v-radio
+                  :label="answer.answer"
+                  :value="index + '-' + index2"
+                  v-for="(answer, index2) in question.answers"
+                  :key="index2"
+                ></v-radio>
+              </v-radio-group>
             </v-card-text>
-            <v-card-text v-if="questionShow" class='see-answears'>
-              <v-card-text v-for="(question, index) in actualChapter.questions" :key="index">
-                <label class="chapter-title">{{ question.question }}</label>
-                <v-radio-group column>
-                  <v-radio
-                    :label="answer.answer"
-                    :value="index + '-' + index2"
-                    :color="setShowResponses(index, index2)"
-                    :readonly="disabledSelect"
-                    @change="verifyIfCorrect(index, index2)"
-                    v-for="(answer, index2) in question.answers"
-                    :key="index2"
-                  ></v-radio>
-                </v-radio-group>
-              </v-card-text>
-              <v-card-actions class='see-answears'>
-                <v-spacer></v-spacer>
-                 <ion-button color='light' fill='clear' 
-                 @click="seeAnswers()"
-                  v-if="seeAnswersVar === false && answersSeen === false"
-                 >Vezi raspunsuri</ion-button>
-              </v-card-actions>
-            </v-card-text>
-          </div>
-          <v-card-actions class='next-chapter'
-             v-if="
-              (!actualChapter.questions && actualChapter.id != '12') ||
-                answersSeen === true
-            "
+          </v-card-text>
+          <!-- results -->
+          <v-card-title
+            class="chapter-title"
+            v-if="showQuiz === true && seeResults === true"
           >
-            <v-spacer></v-spacer>
-            <ion-button color='light' fill='clear' @click="nextChapter()">Urmatoarea lectie</ion-button>
-          </v-card-actions>
+            Results
+          </v-card-title>
+          <v-card-text v-if="showQuiz === true && seeResults === true">
+            <v-card-text
+              v-for="(question, index) in courseDetails.questions"
+              :key="index"
+            >
+              <label class="chapter-title">{{ question.question }}</label>
+              <v-radio-group column>
+                <v-radio
+                  :label="answer.answer"
+                  :value="index + '-' + index2"
+                  v-for="(answer, index2) in question.answers"
+                  :key="index2"
+                ></v-radio>
+              </v-radio-group>
+            </v-card-text>
+          </v-card-text>
         </v-card>
       </v-flex>
     </ion-content>
+    <ion-tab-bar class="actions-bar" slot="bottom">
+      <v-spacer
+        v-if="
+          actualChapter.id === courseDetails.chapters.length && showQuiz === false ||
+            actualChapter.id == 1
+        "
+      ></v-spacer>
+      <ion-tab-button
+        class="back-button"
+        @click="backChapter()"
+        v-if="
+          actualChapter.id == courseDetails.chapters.length && showQuiz === false ||
+            actualChapter.id != 1
+        "
+      >
+        {{ "<" }}
+      </ion-tab-button>
+      <ion-tab-button
+        class="next-button"
+        @click="nextChapter()"
+        v-if="actualChapter.id < courseDetails.chapters.length"
+      >
+        >
+      </ion-tab-button>
+      <ion-tab-button
+        class="quiz-button"
+        @click="startQuiz()"
+        v-if="actualChapter.id == courseDetails.chapters.length && showQuiz === false"
+      >
+        Start quiz
+      </ion-tab-button>
+      <ion-tab-button
+        class="see-results-button"
+        @click="calculateResults()"
+        v-if="showQuiz === true && seeResults === false"
+      >
+        See result
+      </ion-tab-button>
+    </ion-tab-bar>
   </div>
 </template>
 
@@ -97,95 +122,48 @@ export default {
   name: "tab1Details",
   data: () => ({
     courseDetails: null,
-    questionShow: false,
     actualChapter: null,
+    seeResults: false,
     chapterNumber: 0,
-    radios: null,
-    disabledSelect: false,
-    answers: [],
-    seeAnswersVar: false,
-    answersSeen: false,
-    allQuestions: 0,
-    correctQuestions: 0,
+    showQuiz: false,
   }),
   created() {
     this.courseDetails = this.$route.params.course;
     this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
   },
   methods: {
-    showQuestions(index) {
-      this.questionShow = index;
-    },
-    breakIt(value) {
-      if (this.actualChapter.id === "12") {
-        return value;
-      } else {
-        let subtitleCheckForBr1 = value.split("<i>").join("<br><i>");
-        let subtitleCheck = subtitleCheckForBr1
-          .split("<i>")
-          .join('<i style="color:#2196F3;">');
-        let subtitleCheckForBr2 = subtitleCheck.split("</i>").join("</i><br>");
-        let brCheck = subtitleCheckForBr2.split(".").join(".<br>");
-        return brCheck;
-      }
-    },
-    tryAgain() {
-      this.chapterNumber = 0;
-      this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
+    calculateResults() {
+      this.seeResults = true;
     },
     nextChapter() {
-      if (this.actualChapter.questions) {
-        this.allQuestions =
-          this.allQuestions + this.actualChapter.questions.length;
-      }
       this.chapterNumber = this.chapterNumber + 1;
       this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
-      this.questionShow = false;
-      this.radios = null;
-      this.answers = [];
-      this.seeAnswersVar = false;
-      this.disabledSelect = false;
-      this.answersSeen = false;
     },
-    verifyIfCorrect(index, index2) {
-      if (
-        this.actualChapter.questions[index].answers[index2].correct === true
-      ) {
-        this.correctQuestions = this.correctQuestions + 1;
-      }
+    backChapter() {
+      this.chapterNumber = this.chapterNumber - 1;
+      this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
     },
-    verifyAnswers(index, index2) {
-      if (
-        this.actualChapter.questions[index].answers[index2].correct === true
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+    startQuiz() {
+      this.showQuiz = true;
     },
-    /*
-    index = index intrebare
-    index2 = index raspuns
-    */
-    verifiedAnswersColors(index, index2) {
-      return this.verifyAnswers(index, index2) ? "green" : "red";
-    },
-    seeAnswers() {
-      this.seeAnswersVar = true;
-      this.disabledSelect = true;
-      this.answersSeen = true;
-    },
-    setShowResponses(index, index2) {
-      return this.seeAnswersVar === true
-        ? this.verifiedAnswersColors(index, index2)
-        : "primary";
+    breakIt(value) {
+      let subtitleCheckForBr1 = value.split("<i>").join("<br><i>");
+      let subtitleCheck = subtitleCheckForBr1
+        .split("<i>")
+        .join('<i style="color:#2196F3;">');
+      let subtitleCheckForBr2 = subtitleCheck.split("</i>").join("</i><br>");
+      let brCheck = subtitleCheckForBr2.split(".").join(".<br>");
+      return brCheck;
     },
   },
-  onCreate() {},
 };
 </script>
 
 <style>
+.actions-bar {
+  --background: black;
+  --color: white;
+}
 .v-progress-circular {
   margin: 1rem;
 }
@@ -194,27 +172,35 @@ export default {
   color: white;
 }
 .hp-style {
-  --background: rgb(36, 43, 62);
+  --background: black;
 }
-.chapter-title{
+.chapter-title {
   color: white;
-  background-color: rgb(36, 43, 62);
+  background-color: black;
 }
 .theory-text {
   color: white;
-  background-color: rgb(36, 43, 62);
+  background-color: black;
 }
 .next-chapter {
   color: white;
-  background-color: rgb(36, 43, 62);
+  background-color: black;
 }
 .show-questions {
   color: white;
-  background-color: rgb(36, 43, 62);
-
+  background-color: black;
 }
-.see-answears {
-    color: white;
-  background-color: rgb(36, 43, 62);
+.progress-bar {
+  --background: black;
+  --progress-background: white;
+  height: 5px;
+}
+.next-button,
+.back-button,
+.see-results-button {
+  font-size: 1.5rem;
+}
+.quiz-button {
+  font-size: 1rem;
 }
 </style>
