@@ -3,11 +3,16 @@
     <ion-toolbar class="toolbar-style">
       <ion-title>Teach me secure</ion-title>
     </ion-toolbar>
-    <ion-card v-for="category in categories" :key="category.id" class="card-style" @click="showAllCourses(category)">
+    <ion-card
+      v-for="category in categories"
+      :key="category.id"
+      class="card-style"
+      @click="showAllCourses(category)"
+    >
       <ion-item lines="none" class="category-title">
         <ion-icon :name="category.icon" class="icon-style"></ion-icon>
-        <ion-label >{{category.name}}</ion-label>
-          <ion-chip outline class="chip-style">
+        <ion-label>{{category.name}}</ion-label>
+        <ion-chip outline class="chip-style">
           <ion-label>{{category.courses.length}} courses</ion-label>
         </ion-chip>
       </ion-item>
@@ -20,6 +25,7 @@
         </ion-slides>
       </div>
     </ion-card>
+    <ion-button fill='clear' color='light' @click="goToLogin">Log in</ion-button>
   </ion-content>
 </template>
 
@@ -46,6 +52,10 @@ export default {
     showAllCourses(category) {
       this.selectedCategory = category.name;
     },
+     goToLogin() {
+      this.$router.push({ name: "login" });
+    },
+
   },
 
   updated() {
@@ -100,12 +110,11 @@ export default {
 .card-style {
   border-radius: 5px;
   --background: rgb(48, 70, 90);
-  padding-top:10px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
-.icon-style{
-color: rgb(232, 129, 52);
-font-size: large;
-
+.icon-style {
+  color: rgb(232, 129, 52);
+  font-size: large;
 }
 </style>
