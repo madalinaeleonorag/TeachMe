@@ -13,6 +13,13 @@
         <ion-list lines="full">
           <ion-item class="form-line">
             <ion-label position="floating" class="form-label">
+              Name
+              <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input required type="text" v-on:ionInput="handleNameChange($event)"></ion-input>
+          </ion-item>
+          <ion-item class="form-line">
+            <ion-label position="floating" class="form-label">
               Email
               <ion-text color="danger">*</ion-text>
             </ion-label>
@@ -38,15 +45,19 @@
 </template>
 
 <script>
-import firebase from '../firebase/firebase'
+import firebase from "../firebase/firebase";
 export default {
   name: "sign-up",
   props: {},
   data: () => ({
+    name: null,
     email: null,
     password: null,
   }),
   methods: {
+    handleNameChange($event) {
+      this.name = $event.target.value;
+    },
     handleEmailChange($event) {
       this.email = $event.target.value;
     },
@@ -57,6 +68,15 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
+        .then((result) => {
+          let id = result.user.uid
+          firebase
+            .database()
+            .ref("userDetails/" + id)
+            .set({
+              name: this.name,
+            });
+        })
         .then(() => this.$router.push({ path: "/" }))
         .catch((error) => {
           var errorCode = error.code;

@@ -25,17 +25,20 @@
         </ion-slides>
       </div>
     </ion-card>
-    <ion-button fill='clear' color='light' @click="goToLogin">Log in</ion-button>
+    <ion-button fill="clear" color="light" @click="goToLogin">Log in</ion-button>
+    <ion-button fill="clear" color="light" @click="logout">Log out</ion-button>
   </ion-content>
 </template>
 
 <script>
+import firebase from "../firebase/firebase";
 import categories from "../db";
 
 export default {
   name: "tab1",
   data() {
     return {
+      user: null,
       categories: categories,
       selectedCategory: null,
       slideOpts: {
@@ -47,17 +50,32 @@ export default {
   },
   methods: {
     viewCourse(course) {
-      this.$router.push({ name: "tab1-details", params: { course } });
+      let user = firebase.auth().currentUser;
+      console.log(user);
+      if (user) {
+        this.$router.push({ name: "tab1-details", params: { course } });
+      } else {
+        this.goToLogin();
+      }
     },
     showAllCourses(category) {
       this.selectedCategory = category.name;
     },
-     goToLogin() {
+    goToLogin() {
       this.$router.push({ name: "login" });
     },
-
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("succes");
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    },
   },
-
   updated() {
     let category = this.$refs.categories;
     this.$nextTick(() => {
