@@ -20,6 +20,7 @@
     <ion-content padding class="hp-style">
       <v-flex xs12 sm12>
         <v-card>
+
           <!-- chapter text -->
           <v-card-title class="chapter-title" v-if="showQuiz === false">
             {{ actualChapter.title }} ({{ actualChapter.id }}/{{ courseDetails.chapters.length }})
@@ -29,6 +30,7 @@
             v-if="showQuiz === false"
             v-html="breakIt(actualChapter.theory)"
           ></v-card-text>
+
           <!-- quiz text -->
           <v-card-text v-if="showQuiz === true">
             <v-card-text
@@ -46,6 +48,7 @@
               </v-radio-group>
             </v-card-text>
           </v-card-text>
+
           <!-- results -->
           <v-card-title
             class="chapter-title"
@@ -55,22 +58,27 @@
           <v-card-text v-if="showQuiz === true && seeResults === true">
             <v-card-text
               v-for="(question, index) in courseDetails.questions"
-              :key="index"
-            >
+              :key="index">
               <label class="chapter-title">{{ question.question }}</label>
               <v-radio-group column>
                 <v-radio
                   :label="answer.answer"
+                  :color="setShowResponses(index, index2)"
                   :value="index + '-' + index2"
+                  @change="verifyIfCorrect(index, index2)"
                   v-for="(answer, index2) in question.answers"
                   :key="index2"
+                  readonly=true
                 ></v-radio>
               </v-radio-group>
             </v-card-text>
           </v-card-text>
+
         </v-card>
+
       </v-flex>
     </ion-content>
+
     <ion-tab-bar class="actions-bar" slot="bottom">
       <ion-tab-button
         v-if="showSpaceButton">
@@ -96,10 +104,17 @@
       <ion-tab-button
         class="see-results-button"
         @click="calculateResults()"
-        v-if="showQuiz === true && seeResults === false">
+        v-if="showCalculateResultsButton">
         See result
       </ion-tab-button>
+      <ion-tab-button
+        class="go-back-button"
+        @click="goToHome()"
+        v-if="showGoBackToCategoriesButton">
+        Go back to categories
+      </ion-tab-button>
     </ion-tab-bar>
+
   </div>
 </template>
 
@@ -112,6 +127,7 @@ export default {
     seeResults: false,
     chapterNumber: 0,
     showQuiz: false,
+    correctQuestions: 0
   }),
   created() {
     this.courseDetails = this.$route.params.course;
@@ -129,11 +145,18 @@ export default {
     },
     showSpaceButton() {
       return this.actualChapter.id == 1 || this.showQuiz === true || this.seeResults === true;
+    },
+    showCalculateResultsButton() {
+      return this.showQuiz === true && this.seeResults === false;
+    },
+    showGoBackToCategoriesButton() {
+      return this.seeResults === true;
     }
   },
   methods: {
     calculateResults() {
       this.seeResults = true;
+
     },
     nextChapter() {
       this.chapterNumber = this.chapterNumber + 1;
@@ -155,6 +178,30 @@ export default {
       let brCheck = subtitleCheckForBr2.split(".").join(".<br>");
       return brCheck;
     },
+    goToHome() {
+      // 
+    },
+    verifyIfCorrect(index, index2) {
+      if (
+        this.actualChapter.questions[index].answers[index2].correct === true
+      ) {
+        this.correctQuestions = this.correctQuestions + 1;
+      }
+    },
+    verifyAnswers(index, index2) {
+      if (
+        this.actualChapter.questions[index].answers[index2].correct === true
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    setShowResponses(index, index2) {
+      return this.seeAnswersVar === true
+        ? this.verifiedAnswersColors(index, index2)
+        : "primary";
+    }
   },
 };
 </script>
@@ -197,10 +244,11 @@ export default {
 }
 .next-button,
 .back-button,
-.see-results-button {
+.see-results-buttons {
   font-size: 1.5rem;
 }
-.quiz-button {
+.quiz-button,
+.go-back-button {
   font-size: 1rem;
 }
 </style>
