@@ -9,7 +9,8 @@
             color="light"
           ></ion-back-button>
         </ion-buttons>
-        <ion-title>{{ this.courseDetails.name }}</ion-title>
+        <ion-title>{{ this.courseDetails.name }}
+        </ion-title>
       </ion-toolbar>
       <ion-progress-bar
         class="progress-bar"
@@ -21,7 +22,7 @@
         <v-card>
           <!-- chapter text -->
           <v-card-title class="chapter-title" v-if="showQuiz === false">
-            {{ actualChapter.title }}
+            {{ actualChapter.title }} ({{ actualChapter.id }}/{{ courseDetails.chapters.length }})
           </v-card-title>
           <v-card-text
             class="theory-text"
@@ -29,9 +30,6 @@
             v-html="breakIt(actualChapter.theory)"
           ></v-card-text>
           <!-- quiz text -->
-          <v-card-title class="chapter-title" v-if="showQuiz === true">
-            QUIZ
-          </v-card-title>
           <v-card-text v-if="showQuiz === true">
             <v-card-text
               v-for="(question, index) in courseDetails.questions"
@@ -51,8 +49,7 @@
           <!-- results -->
           <v-card-title
             class="chapter-title"
-            v-if="showQuiz === true && seeResults === true"
-          >
+            v-if="showQuiz === true && seeResults === true">
             Results
           </v-card-title>
           <v-card-text v-if="showQuiz === true && seeResults === true">
@@ -75,41 +72,31 @@
       </v-flex>
     </ion-content>
     <ion-tab-bar class="actions-bar" slot="bottom">
-      <v-spacer
-        v-if="
-          actualChapter.id === courseDetails.chapters.length && showQuiz === false ||
-            actualChapter.id == 1
-        "
-      ></v-spacer>
+      <ion-tab-button
+        v-if="showSpaceButton">
+      </ion-tab-button>
       <ion-tab-button
         class="back-button"
         @click="backChapter()"
-        v-if="
-          actualChapter.id == courseDetails.chapters.length && showQuiz === false ||
-            actualChapter.id != 1
-        "
-      >
+        v-if="showBackButton">
         &#60;
       </ion-tab-button>
       <ion-tab-button
         class="next-button"
         @click="nextChapter()"
-        v-if="actualChapter.id < courseDetails.chapters.length"
-      >
+        v-if="showNextButton">
         >
       </ion-tab-button>
       <ion-tab-button
         class="quiz-button"
         @click="startQuiz()"
-        v-if="actualChapter.id == courseDetails.chapters.length && showQuiz === false"
-      >
+        v-if="showQuizButton">
         Start quiz
       </ion-tab-button>
       <ion-tab-button
         class="see-results-button"
         @click="calculateResults()"
-        v-if="showQuiz === true && seeResults === false"
-      >
+        v-if="showQuiz === true && seeResults === false">
         See result
       </ion-tab-button>
     </ion-tab-bar>
@@ -129,6 +116,20 @@ export default {
   created() {
     this.courseDetails = this.$route.params.course;
     this.actualChapter = this.courseDetails.chapters[this.chapterNumber];
+  },
+  computed: {
+    showQuizButton() {
+      return this.actualChapter.id === this.courseDetails.chapters.length && this.showQuiz === false;
+    },
+    showBackButton() {
+      return this.actualChapter.id <= this.courseDetails.chapters.length && this.showQuiz === false && this.actualChapter.id != 1;
+    },
+    showNextButton() {
+      return this.actualChapter.id < this.courseDetails.chapters.length && this.showQuiz === false && this.seeResults === false;
+    },
+    showSpaceButton() {
+      return this.actualChapter.id == 1 || this.showQuiz === true || this.seeResults === true;
+    }
   },
   methods: {
     calculateResults() {
