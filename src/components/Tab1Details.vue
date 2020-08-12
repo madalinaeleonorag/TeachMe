@@ -8,7 +8,6 @@
             text=""
             color="light"
           ></ion-back-button>
-          {{ courseDetails.chapters.length }}
         </ion-buttons>
         <ion-title>{{ this.courseDetails.name }}</ion-title>
       </ion-toolbar>

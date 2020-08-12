@@ -38,7 +38,16 @@ const router = new IonicVueRouter({
         }
       ],
     },
+    {
+      path: '/sign-up', name: 'sign-up',
+      component: () => import('@/components/SignUp.vue')
+    },
+    {
+      path: '/login', name: 'login',
+      component: () => import('@/components/Login.vue')
+    },
     { path: "/", redirect: "tabs/tab1" },
+
   ],
 });
 new Vue({

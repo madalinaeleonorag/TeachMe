@@ -3,11 +3,16 @@
     <ion-toolbar class="toolbar-style">
       <ion-title>Teach me secure</ion-title>
     </ion-toolbar>
-    <ion-card v-for="category in categories" :key="category.id" class="card-style" @click="showAllCourses(category)">
+    <ion-card
+      v-for="category in categories"
+      :key="category.id"
+      class="card-style"
+      @click="showAllCourses(category)"
+    >
       <ion-item lines="none" class="category-title">
         <ion-icon :name="category.icon" class="icon-style"></ion-icon>
-        <ion-label >{{category.name}}</ion-label>
-          <ion-chip outline class="chip-style">
+        <ion-label>{{category.name}}</ion-label>
+        <ion-chip outline class="chip-style">
           <ion-label>{{category.courses.length}} courses</ion-label>
         </ion-chip>
       </ion-item>
@@ -20,16 +25,20 @@
         </ion-slides>
       </div>
     </ion-card>
+    <ion-button fill="clear" color="light" @click="goToLogin">Log in</ion-button>
+    <ion-button fill="clear" color="light" @click="logout">Log out</ion-button>
   </ion-content>
 </template>
 
 <script>
+import firebase from "../firebase/firebase";
 import categories from "../db";
 
 export default {
   name: "tab1",
   data() {
     return {
+      user: null,
       categories: categories,
       selectedCategory: null,
       slideOpts: {
@@ -41,13 +50,32 @@ export default {
   },
   methods: {
     viewCourse(course) {
-      this.$router.push({ name: "tab1-details", params: { course } });
+      let user = firebase.auth().currentUser;
+      console.log(user);
+      if (user) {
+        this.$router.push({ name: "tab1-details", params: { course } });
+      } else {
+        this.goToLogin();
+      }
     },
     showAllCourses(category) {
       this.selectedCategory = category.name;
     },
+    goToLogin() {
+      this.$router.push({ name: "login" });
+    },
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("succes");
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    },
   },
-
   updated() {
     let category = this.$refs.categories;
     this.$nextTick(() => {
@@ -100,12 +128,11 @@ export default {
 .card-style {
   border-radius: 5px;
   --background: rgb(48, 70, 90);
-  padding-top:10px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
-.icon-style{
-color: rgb(232, 129, 52);
-font-size: large;
-
+.icon-style {
+  color: rgb(232, 129, 52);
+  font-size: large;
 }
 </style>
