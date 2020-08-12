@@ -90,7 +90,7 @@
             actualChapter.id != 1
         "
       >
-        {{ "<" }}
+        &#60;
       </ion-tab-button>
       <ion-tab-button
         class="next-button"
