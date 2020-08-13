@@ -3,6 +3,23 @@
     <ion-toolbar class="toolbar-style">
       <ion-title>Teach me secure</ion-title>
     </ion-toolbar>
+    <ion-text v-if="userDetails" color="primary">
+      Welcome back, {{userDetails.name}}
+    </ion-text>
+    <ion-card class="statistic-card" v-if="userDetails" >
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item lines='none' class="statistic-item">{{userDetails.courses.length}} courses finished </ion-item>
+
+          </ion-col>
+          <ion-col>
+           <ion-item lines='none' class="statistic-item">{{userDetails.points}} points </ion-item>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
     <ion-card
       v-for="category in categories"
       :key="category.id"
@@ -25,20 +42,17 @@
         </ion-slides>
       </div>
     </ion-card>
-    <ion-button fill="clear" color="light" @click="goToLogin">Log in</ion-button>
-    <ion-button fill="clear" color="light" @click="logout">Log out</ion-button>
+    <ion-button fill="clear" color="light" v-if="user" @click="signOut">Log out</ion-button>
   </ion-content>
 </template>
 
 <script>
-import firebase from "../firebase/firebase";
 import categories from "../db";
 
 export default {
   name: "tab1",
   data() {
     return {
-      user: null,
       categories: categories,
       selectedCategory: null,
       slideOpts: {
@@ -48,11 +62,17 @@ export default {
       },
     };
   },
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    },
+    userDetails() {
+      return this.$store.getters.userDetails;
+    },
+  },
   methods: {
     viewCourse(course) {
-      let user = firebase.auth().currentUser;
-      console.log(user);
-      if (user) {
+      if (this.user) {
         this.$router.push({ name: "tab1-details", params: { course } });
       } else {
         this.goToLogin();
@@ -64,16 +84,8 @@ export default {
     goToLogin() {
       this.$router.push({ name: "login" });
     },
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          console.log("succes");
-        })
-        .catch((error) => {
-          console.log("error", error);
-        });
+    signOut() {
+      this.$store.dispatch("logout");
     },
   },
   updated() {
@@ -82,7 +94,6 @@ export default {
       category.options = this.slideOpts;
     });
   },
-  onCreate() {},
 };
 </script>
 
@@ -134,5 +145,16 @@ export default {
 .icon-style {
   /* color: rgb(232, 129, 52); */
   font-size: large;
+}
+
+.statistic-card {
+  border-radius: 5px;
+  --background: rgb(232, 129, 52);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.statistic-item {
+  --background: rgb(232, 129, 52);
+  color:white;
 }
 </style>
