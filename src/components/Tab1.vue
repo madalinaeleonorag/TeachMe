@@ -6,7 +6,7 @@
     <ion-text v-if="userDetails" color="primary">
       Welcome back, {{userDetails.name}}
     </ion-text>
-    <ion-card class="statistic-card" v-if="user" >
+    <ion-card class="statistic-card" v-if="userDetails" >
       <ion-grid>
         <ion-row>
           <ion-col>
