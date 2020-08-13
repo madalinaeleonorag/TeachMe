@@ -1,7 +1,7 @@
 let categories = [
   {
     id: 1,
-    name: "Security",
+    name: "IT Software & Hardware",
     icon: "md-lock-closed",
     courses: [
       {
@@ -155,7 +155,6 @@ let categories = [
           {
             question:
               "Din punct de vedere al criteriului domeniului de utilizare informatiile pot fi?",
-            id: 1,
             answers: [
               {
                 answer:
@@ -180,7 +179,6 @@ let categories = [
           {
             question:
               "Care sunt nivelele pentru securitatea unei retea de calcuatoare?",
-            id: 1,
             answers: [
               {
                 answer: "fizic, digital, logic si informational",
@@ -202,7 +200,6 @@ let categories = [
           },
           {
             question: "De ce tip sunt caile fizice de comunicatie?",
-            id: 2,
             answers: [
               {
                 answer: "cablate",
@@ -224,7 +221,6 @@ let categories = [
           },
           {
             question: "De ce tip sunt caile de transmisie?",
-            id: 3,
             answers: [
               {
                 answer: "de tip up-link si down-link",
@@ -246,7 +242,6 @@ let categories = [
           },
           {
             question: "Pe ce baza se stabileste metrica de securitate?",
-            id: 2,
             answers: [
               {
                 answer:
@@ -273,7 +268,6 @@ let categories = [
           {
             question:
               "Conform statisticilor cat % din atacuri pornesc din interiorul retelei?",
-            id: 1,
             answers: [
               {
                 answer: "50 % din atacuri pornesc din interiorul retelei",
@@ -295,7 +289,6 @@ let categories = [
           },
           {
             question: "Care sunt nivelele de securitate logica?",
-            id: 1,
             answers: [
               {
                 answer: "nivelul accesului si al serviciilor",
@@ -322,9 +315,9 @@ let categories = [
         name: "Security 2",
         language: "romanian",
         chapters: [
-          //6
+          //1
           {
-            id: 6,
+            id: 1,
             title: "Securitatea informatiilor",
             theory: `
                     Criptografia reprezinta o ramura a matematicii, care se ocupa cu secretizarea, autentificarea si restrictionarea accesului la informatii într-un sistem informatic. În realizarea acestora se utilizeaza metode matematice, bazate de exemplu pe dificultatea factorizarii numerelor foarte mari. 
@@ -388,135 +381,10 @@ let categories = [
                     </ul>
                     Marcajele de autenticitate, in cazul produselor digitale, sunt de fapt semnaturile digitale. Autenticitatea face referire la un produs original cu privire la originalitatea continutului, numele autorului, data la care a fost creat, proprietarul dreptului de autor etc. Marcarea cu ajutorul semnaturii digitale asigura autenticitatea sursei din care provine un produs digital sau un mesaj transmis în retea si elimina riscul ca acesta sa fie un fals.
                     `,
-            questions: [
-              {
-                question: "Cum se clasifica functiile hash?",
-                id: 1,
-                answers: [
-                  {
-                    answer:
-                      "coduri de detectie modificate si coduri de autentificare a mesajelor",
-                    correct: true,
-                  },
-                  {
-                    answer: "cu valoare fixa si cu valoare diferita",
-                    correct: false,
-                  },
-                  {
-                    answer: "locale si private",
-                    correct: false,
-                  },
-                  {
-                    answer: "matematice, fizice si logice",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question: "Ce este semnatura digitala?",
-                id: 2,
-                answers: [
-                  {
-                    answer:
-                      "un tip de criptare mecanica folosita pentru a identifica un individ ",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "o semnatura pentru a identifica un individ din punct de vedere legal",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "un tip de criptare asimetrica, asemanator semnaturilor de mâna, folosita pentru a identifica un individ din punct de vedere legal",
-                    correct: true,
-                  },
-                  {
-                    answer:
-                      "un tip de criptare libera, asemanator semnaturilor de mâna, folosite pentru a identifica un individ din punct de vedere legal",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question: "Care sunt elementele unui certificat digital?",
-                id: 3,
-                answers: [
-                  {
-                    answer:
-                      "numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice si semnatura",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura",
-                    correct: true,
-                  },
-                  {
-                    answer:
-                      "versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice si un câmp optional pentru identificarea subiectului",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question: "Cum pot fi marcajele?",
-                id: 4,
-                answers: [
-                  {
-                    answer: "vizibile, ascunse si transparente",
-                    correct: true,
-                  },
-                  {
-                    answer: "vizibile",
-                    correct: false,
-                  },
-                  {
-                    answer: "transparente",
-                    correct: false,
-                  },
-                  {
-                    answer: "ascunse si vizibile",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question: "Cum sunt generate marcajele?",
-                id: 5,
-                answers: [
-                  {
-                    answer:
-                      "în mod publica si pot fi detectate folosind chei private sau publice",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "în mod privat si pot fi detectate folosind chei private ",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "în mod public si pot fi detectate folosind chei publice",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "în mod privat si pot fi detectate folosind chei private sau publice",
-                    correct: true,
-                  },
-                ],
-              },
-            ],
           },
-          //7
+          //2
           {
-            id: 7,
+            id: 2,
             title: "Politici de Securitate",
             theory: `
                     Acestea sunt principiile care stau la baza asigurarii securitatii unei retele de comunicatii si sunt exprimate sub forma unui set de reguli si practici.
@@ -538,37 +406,10 @@ let categories = [
                       <li>prevederile informative au rolul de a atentiona (warning) utilizatorii asupra existentei unor vulnerabilitati (de exemplu, neactualizarea listelor cu virusi pentru programele antivirus), asupra riscurilor si consecintelor breselor de securitate ale sistemelor si retelelor. </li>
                     <ul>
                     `,
-            questions: [
-              {
-                question: "Cum trebuie sa fie drepturile de securitate?",
-                id: 1,
-                answers: [
-                  {
-                    answer: "sunt la fel pentru toate persoanele",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "sunt diferentiate doar in ceea ce priveste stergere documentelor",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "trebuie stabilite identic la inceput pentru toate persoanele care au acces la retea în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "trebuie diferentiate în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)",
-                    correct: true,
-                  },
-                ],
-              },
-            ],
           },
-          //8
+          //3
           {
-            id: 8,
+            id: 3,
             title: "Vulnerabilitatea retelelor",
             theory: `
                     Deoarece o retea de comunicatii este un sistem complex, eterogen, cu foarte multi utilizatori, ea reprezinta o zona convenabila pentru diferite atacuri. De aceea, securitatea reprezinta un obiectiv operational vital al oricarei retele de comunicatii. 
@@ -582,35 +423,10 @@ let categories = [
                       <li>preluarea si folosirea neautorizata a informatiilor, adica încalcarea confidentialitatii si a dreptului de autor.</li>   
                     </ul>
                     `,
-            questions: [
-              {
-                question: "De ce se folosesc retelele de calculatoare?",
-                id: 1,
-                answers: [
-                  {
-                    answer:
-                      "sunt utilizate atât pentru realizarea comunicatiilor dintre angajati, cât si pentru comunicatii externe",
-                    correct: true,
-                  },
-                  {
-                    answer: "sunt utilizate pentru o retea publica",
-                    correct: false,
-                  },
-                  {
-                    answer: "sunt utilizate pentru o retea privata",
-                    correct: false,
-                  },
-                  {
-                    answer: "sunt utilizate pentru o retea izolata",
-                    correct: false,
-                  },
-                ],
-              },
-            ],
           },
-          //9
+          //4
           {
-            id: 9,
+            id: 4,
             title: "Tipuri de atacuri",
             theory: `
                     Tinând cont de locul de unde se executa, atacurile pot fi: locale (local), de la distanta (remote). 
@@ -652,110 +468,10 @@ let categories = [
                       <li>asupra unor texte criptate alese (chosen cipher-text attack), pentru care se obtin criptogramele asociate unor texte folosind algoritmi de criptare cu chei publice si se urmareste aflarea cheilor de decriptare. </li>
                     </ul>
                     `,
-            questions: [
-              {
-                question: "Cine poate realiza un atac local?",
-                id: 1,
-                answers: [
-                  {
-                    answer:
-                      "o persoana care face parte din reatea, adica de catre un utilizator local",
-                    correct: true,
-                  },
-                  {
-                    answer: "un utilizator oarecare de la distanta",
-                    correct: false,
-                  },
-                  {
-                    answer: "un administrator",
-                    correct: false,
-                  },
-                  {
-                    answer: "o persoana care nu are acces la reteaua noastra ",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question:
-                  "Cate etape sunt enumerate in text pentru a putea fi realizat un atac la distanta?",
-                id: 2,
-                answers: [
-                  {
-                    answer: "3",
-                    correct: true,
-                  },
-                  {
-                    answer: "4",
-                    correct: false,
-                  },
-                  {
-                    answer: "5",
-                    correct: false,
-                  },
-                  {
-                    answer: "2",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question: "Care este scopul atacurilor active?",
-                id: 2,
-                answers: [
-                  {
-                    answer:
-                      "reducerea disponibilitatii retelei prin supraîncarcarea acesteia cu pachete",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "furtul, falsificarea informatiilor, flooding, perturbarea sau blocarea comunicatiilor",
-                    correct: true,
-                  },
-                  {
-                    answer:
-                      "furtul sau falsificarea informatiilor transmise ori stocate în retea",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "perturbarea sau blocarea comunicatiilor prin atac fizic sau logic asupra echipamentelor din retea si a cailor de comunicatii",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question: "Unde putem gasi un atac criptografic?",
-                id: 2,
-                answers: [
-                  {
-                    answer:
-                      "cand dorim sa analizam un text pe care il avem in format online",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "se aplica direct mesajelor cifrate în vederea obtinerii informatiei originale în clar si/sau a cheilor de criptare si de decriptare.",
-                    correct: true,
-                  },
-                  {
-                    answer:
-                      "cand primim un email de la o adresa pe care noi nu o stim",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "cand dorim sa avem informatii clare despre un mesaj",
-                    correct: false,
-                  },
-                ],
-              },
-            ],
           },
-          //10
+          //5
           {
-            id: 10,
+            id: 5,
             title: "Protocoale si servere de Securitate",
             theory: `
                     <i>Protocoale TCP/IP</i>
@@ -794,135 +510,10 @@ let categories = [
                       <li>TLS (transport Layer Security) s-a dezvoltat ca o alternativa la SSL care rezolva majoritatea inconvenientelor acestuia. </li>
                     </ol>
                     `,
-            questions: [
-              {
-                question: "Cum se face transmiterea pachetelor IP?",
-                id: 1,
-                answers: [
-                  {
-                    answer: "se face intre calculatoare gazda, dar nu direct",
-                    correct: true,
-                  },
-                  {
-                    answer: "se face intre programele de aplicatie",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "se face fragmentat cu ajutorul unei aplicatii instalate pe fiecare calculator",
-                    correct: false,
-                  },
-                  {
-                    answer: "se face sub forma de pachete ",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question:
-                  "Cum sunt trimise datele cu ajutorul protocoalelor Ipv4?",
-                id: 2,
-                answers: [
-                  {
-                    answer: "datele sunt trimise sub forma de pixeli",
-                    correct: false,
-                  },
-                  {
-                    answer: "datele nu se pot trimite ",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "datele sunt trimise sub forma unor blocuri de caractere, numite datagrame sau pachete",
-                    correct: true,
-                  },
-                  {
-                    answer: "datele msunt trimise doar sub forma de pachete",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question: "Ce este un Firewall?",
-                id: 2,
-                answers: [
-                  {
-                    answer:
-                      "este un simplu ruter sau un calculator gazda care asigura securitatea unei retele",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "reprezinta implementarea acestei politici in termeni de configurare a retelei, unul sau mai multe sisteme gazda si ruter-e cu functiuni speciale, alte masuri de securitate, cum ar fi autentificarea prin metode criptografice a clientilor",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "este o aplicatie care ne ajuta sa ne protejam calculatorul de atacurile altor persoane",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "este un sistem care impune o politica de control al accesului intre doua retele",
-                    correct: true,
-                  },
-                ],
-              },
-              {
-                question: "Ce reprezinta un IDS?",
-                id: 2,
-                answers: [
-                  {
-                    answer:
-                      "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite. ",
-                    correct: true,
-                  },
-                  {
-                    answer:
-                      "se refera lam activitatea unui virus gasit intr-un calculator dintr-o companie",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "sunt o completare a comunicarii intre retelele de calculatoare",
-                    correct: false,
-                  },
-                ],
-              },
-              {
-                question:
-                  "Din punctul de vedere al accesibilitatii, care sunt cele doua modalitati de abordare a problemei retelelor private care au ca suport o retea publica:",
-                id: 2,
-                answers: [
-                  {
-                    answer: "LAN si VPN",
-                    correct: false,
-                  },
-                  {
-                    answer:
-                      "VPN-uri de acces de la distannta si VPN-uri realizate intre mai multe retele locale",
-                    correct: true,
-                  },
-                  {
-                    answer: "SSL si TSL",
-                    correct: false,
-                  },
-                  {
-                    answer: "TPC si TSL",
-                    correct: false,
-                  },
-                ],
-              },
-            ],
           },
-          //11
+          //6
           {
-            id: 11,
+            id: 6,
             title: "Concluzii",
             theory: `
                       Exista numeroase probleme control al accesului si de securitate a retelei care trebuie luate in considerare in implementarea si mentinerea unui sistem client-server. Desi exista un numar mare de instrumente pentru functiile de securitate, acestea sunt semnificativ mai putine pentru acest tip de sistem.
@@ -930,11 +521,383 @@ let categories = [
                     `,
           },
         ],
+        questions: [
+          {
+            question: "Cum se clasifica functiile hash?",
+            answers: [
+              {
+                answer:
+                  "coduri de detectie modificate si coduri de autentificare a mesajelor",
+                correct: true,
+              },
+              {
+                answer: "cu valoare fixa si cu valoare diferita",
+                correct: false,
+              },
+              {
+                answer: "locale si private",
+                correct: false,
+              },
+              {
+                answer: "matematice, fizice si logice",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Ce este semnatura digitala?",
+            answers: [
+              {
+                answer:
+                  "un tip de criptare mecanica folosita pentru a identifica un individ ",
+                correct: false,
+              },
+              {
+                answer:
+                  "o semnatura pentru a identifica un individ din punct de vedere legal",
+                correct: false,
+              },
+              {
+                answer:
+                  "un tip de criptare asimetrica, asemanator semnaturilor de mâna, folosita pentru a identifica un individ din punct de vedere legal",
+                correct: true,
+              },
+              {
+                answer:
+                  "un tip de criptare libera, asemanator semnaturilor de mâna, folosite pentru a identifica un individ din punct de vedere legal",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Care sunt elementele unui certificat digital?",
+            answers: [
+              {
+                answer:
+                  "numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice si semnatura",
+                correct: false,
+              },
+              {
+                answer:
+                  "versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura",
+                correct: true,
+              },
+              {
+                answer:
+                  "versiunea certificatului, numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice si un câmp optional pentru identificarea subiectului",
+                correct: false,
+              },
+              {
+                answer:
+                  "numarul de serie, numele emitentului, perioada de valabilitate, numele proprietarului certificatului, cheia publica si algoritmul cheii publice, un câmp optional pentru identificarea subiectului, un câmp optional utilizat pentru extensii, algoritmul folosit pentru semnarea certificatului si semnatura",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Cum pot fi marcajele?",
+            answers: [
+              {
+                answer: "vizibile, ascunse si transparente",
+                correct: true,
+              },
+              {
+                answer: "vizibile",
+                correct: false,
+              },
+              {
+                answer: "transparente",
+                correct: false,
+              },
+              {
+                answer: "ascunse si vizibile",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Cum sunt generate marcajele?",
+            answers: [
+              {
+                answer:
+                  "în mod publica si pot fi detectate folosind chei private sau publice",
+                correct: false,
+              },
+              {
+                answer:
+                  "în mod privat si pot fi detectate folosind chei private ",
+                correct: false,
+              },
+              {
+                answer:
+                  "în mod public si pot fi detectate folosind chei publice",
+                correct: false,
+              },
+              {
+                answer:
+                  "în mod privat si pot fi detectate folosind chei private sau publice",
+                correct: true,
+              },
+            ],
+          },
+          {
+            question: "Cum trebuie sa fie drepturile de securitate?",
+            answers: [
+              {
+                answer: "sunt la fel pentru toate persoanele",
+                correct: false,
+              },
+              {
+                answer:
+                  "sunt diferentiate doar in ceea ce priveste stergere documentelor",
+                correct: false,
+              },
+              {
+                answer:
+                  "trebuie stabilite identic la inceput pentru toate persoanele care au acces la retea în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)",
+                correct: false,
+              },
+              {
+                answer:
+                  "trebuie diferentiate în ceea ce priveste accesul la documente si drepturile asupra acestora (citire, scriere, modificare sau stergere)",
+                correct: true,
+              },
+            ],
+          },
+          {
+            question: "De ce se folosesc retelele de calculatoare?",
+            answers: [
+              {
+                answer:
+                  "sunt utilizate atât pentru realizarea comunicatiilor dintre angajati, cât si pentru comunicatii externe",
+                correct: true,
+              },
+              {
+                answer: "sunt utilizate pentru o retea publica",
+                correct: false,
+              },
+              {
+                answer: "sunt utilizate pentru o retea privata",
+                correct: false,
+              },
+              {
+                answer: "sunt utilizate pentru o retea izolata",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Cine poate realiza un atac local?",
+            answers: [
+              {
+                answer:
+                  "o persoana care face parte din reatea, adica de catre un utilizator local",
+                correct: true,
+              },
+              {
+                answer: "un utilizator oarecare de la distanta",
+                correct: false,
+              },
+              {
+                answer: "un administrator",
+                correct: false,
+              },
+              {
+                answer: "o persoana care nu are acces la reteaua noastra ",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "Cate etape sunt enumerate in text pentru a putea fi realizat un atac la distanta?",
+            answers: [
+              {
+                answer: "3",
+                correct: true,
+              },
+              {
+                answer: "4",
+                correct: false,
+              },
+              {
+                answer: "5",
+                correct: false,
+              },
+              {
+                answer: "2",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Care este scopul atacurilor active?",
+            answers: [
+              {
+                answer:
+                  "reducerea disponibilitatii retelei prin supraîncarcarea acesteia cu pachete",
+                correct: false,
+              },
+              {
+                answer:
+                  "furtul, falsificarea informatiilor, flooding, perturbarea sau blocarea comunicatiilor",
+                correct: true,
+              },
+              {
+                answer:
+                  "furtul sau falsificarea informatiilor transmise ori stocate în retea",
+                correct: false,
+              },
+              {
+                answer:
+                  "perturbarea sau blocarea comunicatiilor prin atac fizic sau logic asupra echipamentelor din retea si a cailor de comunicatii",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Unde putem gasi un atac criptografic?",
+            answers: [
+              {
+                answer:
+                  "cand dorim sa analizam un text pe care il avem in format online",
+                correct: false,
+              },
+              {
+                answer:
+                  "se aplica direct mesajelor cifrate în vederea obtinerii informatiei originale în clar si/sau a cheilor de criptare si de decriptare.",
+                correct: true,
+              },
+              {
+                answer:
+                  "cand primim un email de la o adresa pe care noi nu o stim",
+                correct: false,
+              },
+              {
+                answer: "cand dorim sa avem informatii clare despre un mesaj",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Cum se face transmiterea pachetelor IP?",
+            answers: [
+              {
+                answer: "se face intre calculatoare gazda, dar nu direct",
+                correct: true,
+              },
+              {
+                answer: "se face intre programele de aplicatie",
+                correct: false,
+              },
+              {
+                answer:
+                  "se face fragmentat cu ajutorul unei aplicatii instalate pe fiecare calculator",
+                correct: false,
+              },
+              {
+                answer: "se face sub forma de pachete ",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Cum sunt trimise datele cu ajutorul protocoalelor Ipv4?",
+            answers: [
+              {
+                answer: "datele sunt trimise sub forma de pixeli",
+                correct: false,
+              },
+              {
+                answer: "datele nu se pot trimite ",
+                correct: false,
+              },
+              {
+                answer:
+                  "datele sunt trimise sub forma unor blocuri de caractere, numite datagrame sau pachete",
+                correct: true,
+              },
+              {
+                answer: "datele msunt trimise doar sub forma de pachete",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question: "Ce este un Firewall?",
+            answers: [
+              {
+                answer:
+                  "este un simplu ruter sau un calculator gazda care asigura securitatea unei retele",
+                correct: false,
+              },
+              {
+                answer:
+                  "reprezinta implementarea acestei politici in termeni de configurare a retelei, unul sau mai multe sisteme gazda si ruter-e cu functiuni speciale, alte masuri de securitate, cum ar fi autentificarea prin metode criptografice a clientilor",
+                correct: false,
+              },
+              {
+                answer:
+                  "este o aplicatie care ne ajuta sa ne protejam calculatorul de atacurile altor persoane",
+                correct: false,
+              },
+              {
+                answer:
+                  "este un sistem care impune o politica de control al accesului intre doua retele",
+                correct: true,
+              },
+            ],
+          },
+          {
+            question: "Ce reprezinta un IDS?",
+            answers: [
+              {
+                answer:
+                  "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite. ",
+                correct: true,
+              },
+              {
+                answer:
+                  "se refera lam activitatea unui virus gasit intr-un calculator dintr-o companie",
+                correct: false,
+              },
+              {
+                answer:
+                  "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii",
+                correct: false,
+              },
+              {
+                answer:
+                  "sunt o completare a comunicarii intre retelele de calculatoare",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "Din punctul de vedere al accesibilitatii, care sunt cele doua modalitati de abordare a problemei retelelor private care au ca suport o retea publica:",
+            answers: [
+              {
+                answer: "LAN si VPN",
+                correct: false,
+              },
+              {
+                answer:
+                  "VPN-uri de acces de la distannta si VPN-uri realizate intre mai multe retele locale",
+                correct: true,
+              },
+              {
+                answer: "SSL si TSL",
+                correct: false,
+              },
+              {
+                answer: "TPC si TSL",
+                correct: false,
+              },
+            ],
+          },
+        ],
       },
-      { id: 3, name: "test" },
-      { id: 5, name: "test" },
-      { id: 6, name: "test" },
-      { id: 7, name: "test" },
     ],
   },
   {

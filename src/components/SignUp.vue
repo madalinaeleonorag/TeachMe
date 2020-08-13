@@ -90,18 +90,18 @@ export default {
 
 <style scoped>
 .register-page {
-  --background: black;
+  --background: #141E30;
 }
 .form-container {
   margin-top: 30%;
   margin-left: 20px;
   margin-right: 20px;
 }
-.form-line {
+/* .form-line {
   --background: white;
-}
+} */
 .form-label {
   font-size: 12px;
-  color: black;
+  /* color: black; */
 }
 </style>

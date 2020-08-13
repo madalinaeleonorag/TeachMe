@@ -89,8 +89,8 @@ export default {
 <style>
 .category-title {
   font-size: 14px;
-  --background: rgb(48, 70, 90);
-  color: white;
+  /* --background: rgb(48, 70, 90);
+  color: white; */
 }
 
 .slider-container {
@@ -105,34 +105,34 @@ export default {
   justify-content: center;
   width: 100px;
   height: 35px;
-  background: #ccc;
+  /* background: #ccc; */
   margin: 10px 5px;
   font-size: 12px;
-  color: white;
-  background-color: rgb(232, 129, 52);
+  /* color: white; */
+  /* background-color: rgb(232, 129, 52); */
   border-radius: 3px;
 }
 .chip-style {
   padding-left: 7px;
   padding-right: 7px;
-  color: white;
+  /* color: white; */
   font-size: 10px;
 }
 .hp-style {
-  --background: black;
+  --background: #141E30;
 }
-.toolbar-style {
+/* .toolbar-style {
   --background: rgb(45, 65, 89);
   color: white;
-}
+} */
 .card-style {
   border-radius: 5px;
-  --background: rgb(48, 70, 90);
+  /* --background: rgb(48, 70, 90); */
   padding-top: 10px;
   padding-bottom: 10px;
 }
 .icon-style {
-  color: rgb(232, 129, 52);
+  /* color: rgb(232, 129, 52); */
   font-size: large;
 }
 </style>
