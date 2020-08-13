@@ -37,9 +37,8 @@
 </template>
 
 <script>
-import firebase from "../firebase/firebase";
 export default {
-  name: "sign-up",
+  name: "login",
   props: {},
   data: () => ({
     email: null,
@@ -56,20 +55,8 @@ export default {
       this.$router.push({ name: "sign-up" });
     },
     login() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(() => this.$router.push({ path: "/" }))
-        .catch(() => {
-          return this.$ionic.alertController
-            .create({
-              header: "Login failed",
-              message: "Invalid username or password, please try again",
-              buttons: ["OK"],
-            })
-            .then((a) => a.present());
-        });
-    },
+      this.$store.dispatch('login', {email: this.email, password: this.password})
+    }
   },
 };
 </script>

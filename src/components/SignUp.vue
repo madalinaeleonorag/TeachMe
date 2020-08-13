@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import firebase from "../firebase/firebase";
 export default {
   name: "sign-up",
   props: {},
@@ -65,24 +64,7 @@ export default {
       this.password = $event.target.value;
     },
     createAccount() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then((result) => {
-          let id = result.user.uid
-          firebase
-            .database()
-            .ref("userDetails/" + id)
-            .set({
-              name: this.name,
-            });
-        })
-        .then(() => this.$router.push({ path: "/" }))
-        .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        });
+      this.$store.dispatch('signUp', {email: this.email, password: this.password, name: this.name})
     },
   },
 };

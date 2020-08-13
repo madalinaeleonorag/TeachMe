@@ -1,20 +1,19 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import './plugins/vuetify'
 import App from './App.vue'
-// import HelloWorld from './components/HelloWorld.vue'
 import "@ionic/core/css/core.css";
 import "@ionic/core/css/ionic.bundle.css";
-
 import Ionic from "@ionic/vue"
-import "@ionic/core/css/core.css"
-import "@ionic/core/css/ionic.bundle.css"
 import { IonicVueRouter } from "@ionic/vue";
+import store from './store'
 
 Vue.config.productionTip = false;
 Vue.use(Ionic);
 Vue.use(IonicVueRouter);
+Vue.use(Vuex)
 
-const router = new IonicVueRouter({
+export const router = new IonicVueRouter({
   mode: "history",
   base: "/",
   routes: [
@@ -52,5 +51,6 @@ const router = new IonicVueRouter({
 });
 new Vue({
   router,
+  store: store,
   render: (h) => h(App),
 }).$mount("#app");
