@@ -51,9 +51,8 @@
           </div>
 
           <!-- results -->
-          <div v-if="seeResults === true">
-            Results
-          </div>
+
+          <!-- progress donut to be implemented -->
           <div v-if="seeResults === true">
             Correct questions: {{ correctQuestions }}
 
