@@ -28,9 +28,9 @@
     >
       <ion-item lines="none" class="category-title">
         <ion-icon :name="category.icon" class="icon-style"></ion-icon>
-        <ion-label>{{category.name}}</ion-label>
+        <ion-label>&nbsp; {{category.name}}</ion-label>
         <ion-chip outline class="chip-style">
-          <ion-label>{{category.courses.length}} courses</ion-label>
+          <ion-label>{{category.courses.length}}</ion-label>
         </ion-chip>
       </ion-item>
 
@@ -105,7 +105,7 @@ export default {
 }
 
 .slider-container {
-  width: 300px;
+  background-color: #241b52;
 }
 .slider {
   width: 30%;
@@ -116,34 +116,34 @@ export default {
   justify-content: center;
   width: 100px;
   height: 35px;
-  /* background: #ccc; */
   margin: 10px 5px;
   font-size: 12px;
-  /* color: white; */
-  /* background-color: rgb(232, 129, 52); */
+  color: white;
+  background-color: #304582;
   border-radius: 3px;
 }
 .chip-style {
   padding-left: 7px;
   padding-right: 7px;
-  /* color: white; */
+  color: #304582;
   font-size: 10px;
+  width: 31px;
+  justify-content: center;
+  display: flex;
+  height: 30px;
 }
 .hp-style {
-  --background: #141E30;
+  --background: #170a3a;
 }
-/* .toolbar-style {
-  --background: rgb(45, 65, 89);
+.toolbar-style {
+  --background: #57b3ed;
   color: white;
-} */
+}
 .card-style {
   border-radius: 5px;
-  /* --background: rgb(48, 70, 90); */
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 .icon-style {
-  /* color: rgb(232, 129, 52); */
+  color: #304582;
   font-size: large;
 }
 

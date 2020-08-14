@@ -32,5 +32,11 @@ ion-toolbar.toolbar-ios ion-title.title-ios {
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
 }
+.close-icon {
+  color: #b45171;
+}
+.check-icon {
+  color: #0cfbc1;
+}
 
 </style>

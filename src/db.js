@@ -123,9 +123,7 @@ let categories = [
             <li><span>securitatea logica a accesului (SLA) care se refera la accesul la sistem/retea, contul de utilizator si la documente (fisiere)</span></li>
             <li><span>securitatea logica a serviciilor (SLS) care cuprinde accesul la serviciile de sistem/retea pe baza listelor de asteptare, intrare/iesire de pe disc, controlul si gestionarea serviciilor (management). Controlul serviciilor (CS) monitorizeaza si raporteaza starea serviciilor, activeaza sau dezactiveaza serviciile oferite de sistem si de retea. Drepturile la servicii (DS) stabilesc cine si cum foloseste un anumit serviciu</span></li>
           </ul>
-          <br>
           <i>Securitatea logica a accesului</i>
-          <br>
           Sistemul de securitate trebuie sa identifice persoanele autorizate, vizitatorii si categoriile de utilizatori indezirabili, neautorizate.
           Parolele sunt folosite pentru a se permite accesul la calculatoare, la nivel de utilizatori sau grupuri de utilizatori. Sistemul parolelor, totusi, nu ofera un nivel de securitate suficient, indiferent de complexitatea sa, depinzând în mod esential de modul de pastrare a caracterului lor secret. 
           Sporirea SLA pentru conturile de utilizator este realizata prin folosirea unor parole care contin combinatii de caractere aleatoare, relativ lungi, schimbate periodic, accesibile doar persoanelor autorizate si de încredere.
@@ -142,9 +140,7 @@ let categories = [
             <li>Pentru orice terminal folosit o perioada indelungata, accesul trebuie resetat la intervale regulate de timp pentru a se asigura ca nu este impersonat accesul la sistem;</li>
             <li>La deschiderea unei noi sesiuni de lucru, utilizatorului trebuie sa i se aduca la cunostinta când a fost accesat ultima data sistemul cu parola respectiva.</li>
           </ol>
-          <br>
           <i>Securitatea logica a serviciilor</i>
-          <br>
           Serverul de autentificare verifica parola (introdusa de la tastatura / pe baza unui card) folosind liste de control de. Folosind un nume de utilizator si o parola, unei persoane i se poate permite accesul garanta respectarea privilegiilor existente la anumite resurse ale sistemului, printre care: drept de citire, scriere, executie, stergere.
           Sistemele de operare recente ofera modalitati de administrare a drepturilor pe fisiere pentru anumiti utilizatori sau grupuri de utilizatori. Aceste sisteme au capacitatea de a controla operatiile ce pot fi realizate asupra fisierelor din sistem. 
           In permanenta trebuie monitorizat accesul la servicii si resurse pentru a identifica eventualele tentative/evenimente cu scop de frauda, prin "depasirea" restrictiilor impuse de catre utilizatorii autorizati ai retelei. Pentru un numar mare de utilizatori activi la un anumit moment în retea, este necesara utilizarea unor programe de securitate cu facilitati de monitorizare automata a accesului la servicii si resurse, precum si de solutionare automata a evenimentelor de securitate, urmata eventual de restrictionarea accesului si chiar excluderea acestora din retea. Restrictiile pot fi impuse pe diferite criterii: adrese de retea, adrese MAC, porturi logice, nume de utilizatori, temporale, ierarhice. 

@@ -17,27 +17,27 @@
       ></ion-progress-bar>
     </ion-header>
     <ion-content padding class="hp-style">
-      <v-flex xs12 sm12>
-        <v-card>
+      <v-flex xs12 sm12 class="content">
+        <div>
           <!-- chapter text -->
-          <v-card-title class="chapter-title" v-if="showQuiz === false">
+          <div class="chapter-title" v-if="showQuiz === false">
             {{ actualChapter.title }} ({{ actualChapter.id }}/{{
               courseDetails.chapters.length
             }})
-          </v-card-title>
-          <v-card-text
+          </div>
+          <div
             class="theory-text"
             v-if="showQuiz === false"
             v-html="breakIt(actualChapter.theory)"
-          ></v-card-text>
+          ></div>
 
           <!-- quiz text -->
-          <v-card-text v-if="showQuiz === true && seeResults === false">
-            <v-card-text
+          <div v-if="showQuiz === true && seeResults === false">
+            <div
               v-for="(question, index) in courseDetails.questions"
               :key="index"
             >
-              <label class="chapter-title">{{ question.question }}</label>
+              <label>{{ question.question }}</label>
               <v-radio-group column :mandatory="true" v-model="answers[index]">
                 <v-radio
                   :label="answer.answer"
@@ -47,14 +47,14 @@
                 >
                 </v-radio>
               </v-radio-group>
-            </v-card-text>
-          </v-card-text>
+            </div>
+          </div>
 
           <!-- results -->
-          <v-card-text v-if="seeResults === true">
+          <div v-if="seeResults === true">
             Results
-          </v-card-text>
-          <v-card-text v-if="seeResults === true">
+          </div>
+          <div v-if="seeResults === true">
             Correct questions: {{ correctQuestions }}
 
             <div>
@@ -63,19 +63,21 @@
                   {{ courseDetails.questions[question[0]].question }}
                 </div>
                 <div class="wrong-answer">
+                  <ion-icon name="close" class="close-icon"></ion-icon>
                   {{
                     courseDetails.questions[question[0]].answers[question[1]]
                       .answer
                   }}
                 </div>
                 <div class="correct-answer">
+                  <ion-icon name="checkmark" class="check-icon"></ion-icon>
                   {{ getCorrectAnswerForQuestion(question[0]) }}
                 </div>
               </div>
             </div>
-          </v-card-text>
-        </v-card>
-      </v-flex>
+          </div>
+        </div>
+      </v-flex> 
     </ion-content>
 
     <ion-tab-bar class="actions-bar" slot="bottom">
@@ -209,7 +211,7 @@ export default {
       let subtitleCheckForBr1 = value.split("<i>").join("<br><i>");
       let subtitleCheck = subtitleCheckForBr1
         .split("<i>")
-        .join('<i style="color:#2196F3;">');
+        .join('<i style="color:#57b3ed;">');
       let subtitleCheckForBr2 = subtitleCheck.split("</i>").join("</i><br>");
       let brCheck = subtitleCheckForBr2.split(".").join(".<br>");
       return brCheck;
@@ -226,40 +228,47 @@ export default {
   margin-top: 10px;
 }
 .wrong-answer {
-  color: red;
+  color: #b45171;
 }
 .correct-answer {
-  color: green;
+  color: #0cfbc1;
 }
 .actions-bar {
-  --background: #141E30;
-  /* --color: white; */
+  --background: #170a3a;
+  --color: #57b3ed;
 }
 .v-progress-circular {
   margin: 1rem;
 }
-/* .toolbar-style {
-  --background: rgb(45, 65, 89);
+.toolbar-style {
+  --background: #57b3ed;
   color: white;
-} */
+}
 .hp-style {
-  --background: #141E30;
+  --background: #170a3a;
+  --color: white;
 }
 .chapter-title {
-  /* color: white; */
-  background-color: #141E30;
+  color: #57b3ed;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  padding-left: 10px;
+  padding-top: 10px;
+  background-color: #241b52;
+  font-size: initial;
 }
 .theory-text {
-  /* color: white; */
-  background-color: #141E30;
+  word-spacing: 1px;
+  white-space: pre-line;
 }
 .next-chapter {
   /* color: white; */
-  background-color: #141E30;
+  background-color: #170a3a;
 }
 .show-questions {
   /* color: white; */
-  background-color: #141E30;
+  background-color: #170a3a;
 } */
 .progress-bar {
   /* --background: black;
@@ -275,9 +284,9 @@ export default {
 .go-back-button {
   font-size: 1rem;
 }
-.v-card {
+.div {
   border: none;
-  background-color: #141E30;
+  background-color: #170a3a;
   box-shadow: none;
   /* color: white; */
 }
@@ -287,4 +296,7 @@ export default {
 /* .theme--light.v-label {
   color: white;
 } */
+.content {
+  margin: 20px;
+}
 </style>

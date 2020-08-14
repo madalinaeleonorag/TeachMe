@@ -63,7 +63,7 @@ export default {
 
 <style scoped>
 .register-page {
-  --background: #141E30;
+  --background: #170a3a;
 }
 .form-container {
   margin-top: 30%;
