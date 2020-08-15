@@ -545,7 +545,7 @@ let categories = [
             answers: [
               {
                 answer:
-                  "un tip de criptare mecanica folosita pentru a identifica un individ ",
+                  "un tip de criptare mecanica folosita pentru a identifica un individ",
                 correct: false,
               },
               {
@@ -621,7 +621,7 @@ let categories = [
               },
               {
                 answer:
-                  "în mod privat si pot fi detectate folosind chei private ",
+                  "în mod privat si pot fi detectate folosind chei private",
                 correct: false,
               },
               {
@@ -699,7 +699,7 @@ let categories = [
                 correct: false,
               },
               {
-                answer: "o persoana care nu are acces la reteaua noastra ",
+                answer: "o persoana care nu are acces la reteaua noastra",
                 correct: false,
               },
             ],
@@ -792,7 +792,7 @@ let categories = [
                 correct: false,
               },
               {
-                answer: "se face sub forma de pachete ",
+                answer: "se face sub forma de pachete",
                 correct: false,
               },
             ],
@@ -805,7 +805,7 @@ let categories = [
                 correct: false,
               },
               {
-                answer: "datele nu se pot trimite ",
+                answer: "datele nu se pot trimite",
                 correct: false,
               },
               {
@@ -849,7 +849,7 @@ let categories = [
             answers: [
               {
                 answer:
-                  "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite. ",
+                  "sunt o completare a activitatii unui firewall în procesul de securitate a unei retele de comunicatii si constau în solutii pasive de analiza, clasificare si raportare a evenimentelor de retea nedorite.",
                 correct: true,
               },
               {
@@ -898,24 +898,339 @@ let categories = [
   },
   {
     id: 2,
-    name: "Category 2",
+    name: "Languages",
     icon: "star",
     courses: [
-      { id: 1, name: "Course 1" },
-      { id: 2, name: "Course 2" },
-      { id: 3, name: "Course 3" },
+      {
+        id: 1,
+        name: "Basic english",
+        language: "english",
+        chapters: [
+          //1
+          {
+            id: 1,
+            title: "English test",
+            theory: `Test your english level by answer the questions from the quiz`,
+          }
+        ],
+        questions: [
+          {
+            question:
+              "He goes to his guitar lessons....",
+            answers: [
+              {
+                answer:
+                  "by underground",
+                correct: true,
+              },
+              {
+                answer: "on underground",
+                correct: false,
+              },
+              {
+                answer: "with underground",
+                correct: false,
+              },
+              {
+                answer: "in underground",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "She .... Supper with us last Friday",
+            answers: [
+              {
+                answer:
+                  "hadn’t",
+                correct: false,
+              },
+              {
+                answer: "no had",
+                correct: false,
+              },
+              {
+                answer: "didn’t have got",
+                correct: false,
+              },
+              {
+                answer: "didn’t have",
+                correct: true,
+              },
+            ],
+          },
+          {
+            question:
+              "We have to go to the supermarket ..... some bread and milk.",
+            answers: [
+              {
+                answer:
+                  "for getting",
+                correct: false,
+              },
+              {
+                answer: "to get",
+                correct: true,
+              },
+              {
+                answer: "to getting",
+                correct: false,
+              },
+              {
+                answer: "for to get",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "Have you...?",
+            answers: [
+              {
+                answer:
+                  "got any friends in Barcelona",
+                correct: true,
+              },
+              {
+                answer: "not got no friends in Barcelona",
+                correct: false,
+              },
+              {
+                answer: "in Barcelona any friends",
+                correct: false,
+              },
+              {
+                answer: "friends in Barcelona got",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "Every year,he goes to the coast for his holidays ....",
+            answers: [
+              {
+                answer:
+                  "in train",
+                correct: false,
+              },
+              {
+                answer: "on train",
+                correct: false,
+              },
+              {
+                answer: "by train",
+                correct: true,
+              },
+              {
+                answer: "with train",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "Michael.........Paris in the morning",
+            answers: [
+              {
+                answer:
+                  "to leaving",
+                correct: false,
+              },
+              {
+                answer: "leaves for",
+                correct: false,
+              },
+              {
+                answer: "is leaving for",
+                correct: true,
+              },
+              {
+                answer: "leave to",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "She has her German classes .. Tuesday mornings",
+            answers: [
+              {
+                answer:
+                  "in",
+                correct: false,
+              },
+              {
+                answer: "at",
+                correct: false,
+              },
+              {
+                answer: "by",
+                correct: false,
+              },
+              {
+                answer: "on",
+                correct: true,
+              },
+            ],
+          },
+          {
+            question:
+              "That file belongs to Patricia, give it to ....",
+            answers: [
+              {
+                answer:
+                  "it",
+                correct: false,
+              },
+              {
+                answer: "him",
+                correct: false,
+              },
+              {
+                answer: "her",
+                correct: true,
+              },
+              {
+                answer: "them",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "Pass ....",
+            answers: [
+              {
+                answer:
+                  "the salt to Tom",
+                correct: true,
+              },
+              {
+                answer: "the Tom a salt",
+                correct: false,
+              },
+              {
+                answer: "the salt at Tom",
+                correct: false,
+              },
+              {
+                answer: "to Tom the salt",
+                correct: false,
+              },
+            ],
+          },
+          {
+            question:
+              "He says he's been robbed. He can't find his wallet ....",
+            answers: [
+              {
+                answer:
+                  "not anywhere",
+                correct: false,
+              },
+              {
+                answer: "nowhere",
+                correct: false,
+              },
+              {
+                answer: "anywhere",
+                correct: true,
+              },
+              {
+                answer: "somewhere",
+                correct: false,
+              },
+            ],
+          }
+        ],
+      },
     ],
   },
   {
     id: 3,
-    name: "Category 3",
+    name: "General knowledge",
     icon: "md-add-circle",
     courses: [
-      { id: 1, name: "Course 1" },
-      { id: 2, name: "Course 2" },
-      { id: 3, name: "Course 3" },
-      { id: 5, name: "Course 4" },
-      { id: 6, name: "Course 5" },
+      { id: 1, 
+        name: "Trivia animals",
+        language: "english",
+        chapters: [
+          //1
+          {
+            id: 1,
+            title: "About",
+            theory: `If you love big cats as much as Carole Baskin, know your amphibians from your reptiles and are clued up on mammals both big and small, then this animal quiz is for you.
+            `,
+          }
+        ],
+        questions: [
+          {
+            question:
+              "Which is the only big cat that can't roar?",
+            answers: [
+              {
+                answer:
+                  "Cheetahs",
+                correct: true,
+              },
+              {
+                answer: "Lions",
+                correct: false,
+              },
+              {
+                answer: "Wild cats",
+                correct: false,
+              }
+            ],
+          },
+          {
+            question:
+              "What is the largest lang animal in the world?",
+            answers: [
+              {
+                answer: "Horses",
+                correct: false,
+              },
+              {
+                answer: "Elephants",
+                correct: true,
+              },
+            ],
+          },
+          {
+            question:
+              "What is the wingspan of a bald eagle?",
+            answers: [
+              {
+                answer:
+                  "5 feet",
+                correct: false,
+              },
+              {
+                answer: "8 feet",
+                correct: true,
+              }
+            ],
+          },
+          {
+            question:
+              "What counts for 99 percent of a panda's diet?",
+            answers: [
+              {
+                answer:
+                  "Bamboo",
+                correct: true,
+              },
+              {
+                answer: "Fish",
+                correct: false,
+              }
+            ],
+          }
+        ],
+      }
     ],
   },
 ];
