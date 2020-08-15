@@ -3,8 +3,10 @@
     <ion-toolbar class="toolbar-style">
       <ion-title>Teach me secure</ion-title>
     </ion-toolbar>
-    <ion-text v-if="userDetails" color="primary">
-      Welcome back, {{userDetails.name}}
+    <ion-text v-if="userDetails">
+      <div class="user-infos">
+      Welcome back, {{userDetails.name}}. <a href="#" v-if="user" @click="signOut">Log out</a>
+      </div>
     </ion-text>
     <ion-card class="statistic-card" v-if="userDetails" >
       <ion-grid>
@@ -52,7 +54,6 @@
         </ion-slides>
       </div>
     </ion-card>
-    <ion-button fill="clear" color="light" v-if="user" @click="signOut">Log out</ion-button>
   </ion-content>
 </template>
 
@@ -110,10 +111,7 @@ export default {
 <style>
 .category-title {
   font-size: 14px;
-  /* --background: rgb(48, 70, 90);
-  color: white; */
 }
-
 .slider-container {
   background-color: #241b52;
 }
@@ -136,7 +134,7 @@ export default {
   padding-right: 7px;
   color: #304582;
   font-size: 10px;
-  width: 31px;
+  width: 30px;
   justify-content: center;
   display: flex;
   height: 30px;
@@ -148,6 +146,10 @@ export default {
 .flag-png {
   height: 10px !important;
   padding-right: 3px;
+}
+.user-infos {
+  margin: 16px;
+  color: white;
 }
 .slider-title {
   height: 100%;
@@ -166,29 +168,13 @@ export default {
   opacity: 0.7;
   align-self: start;
 }
-.hp-style {
-  --background: #170a3a;
-}
-.toolbar-style {
-  --background: #57b3ed;
-  color: white;
-}
-.card-style {
-  border-radius: 5px;
-}
-.icon-style {
-  color: #304582;
-  font-size: large;
-}
-
 .statistic-card {
   border-radius: 5px;
-  --background: rgb(232, 129, 52);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  --background: #06a37d;
 }
 .statistic-item {
-  --background: rgb(232, 129, 52);
-  color:white;
+  --background: #06a37d;
+  color: white;
+  font-weight: 500;
 }
 </style>

@@ -22,7 +22,6 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* color: #2c3e50; */
   margin-top: 60px;
 }
 ion-navbar.toolbar.toolbar-ios.statusbar-padding,
@@ -38,5 +37,23 @@ ion-toolbar.toolbar-ios ion-title.title-ios {
 .check-icon {
   color: #0cfbc1;
 }
-
+a {
+  color: #57b3ed !important;
+}
+.hp-style {
+  --background: #170a3a;
+  --color: white;
+}
+.toolbar-style {
+  --background: #57b3ed;
+  color: white;
+  text-align: center;
+}
+.card-style {
+  border-radius: 5px;
+}
+.icon-style {
+  color: #304582;
+  font-size: large;
+}
 </style>

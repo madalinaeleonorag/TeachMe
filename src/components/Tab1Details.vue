@@ -40,6 +40,7 @@
               <label>{{ question.question }}</label>
               <v-radio-group column :mandatory="true" v-model="answers[index]">
                 <v-radio
+                  color="#fff"
                   :label="answer.answer"
                   :value="index2"
                   v-for="(answer, index2) in question.answers"
@@ -239,14 +240,6 @@ export default {
 .v-progress-circular {
   margin: 1rem;
 }
-.toolbar-style {
-  --background: #57b3ed;
-  color: white;
-}
-.hp-style {
-  --background: #170a3a;
-  --color: white;
-}
 .chapter-title {
   color: #57b3ed;
   padding-bottom: 10px;
@@ -262,16 +255,12 @@ export default {
   white-space: pre-line;
 }
 .next-chapter {
-  /* color: white; */
   background-color: #170a3a;
 }
 .show-questions {
-  /* color: white; */
   background-color: #170a3a;
 } */
 .progress-bar {
-  /* --background: black;
-  --progress-background: white; */
   height: 5px;
 }
 .next-button,
@@ -287,14 +276,10 @@ export default {
   border: none;
   background-color: #170a3a;
   box-shadow: none;
-  /* color: white; */
 }
 .theme--light.v-sheet {
   background-color: transparent;
 }
-/* .theme--light.v-label {
-  color: white;
-} */
 .content {
   margin: 20px;
 }
