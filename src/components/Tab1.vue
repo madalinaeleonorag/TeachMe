@@ -37,7 +37,10 @@
       <div v-show="selectedCategory === category.name">
         <ion-slides ref="categories" pager="false" scrollbar="false" class="slider-container">
           <ion-slide class="slider" v-for="course in category.courses" :key="course.id">
-            <div class="slide-content" @click="viewCourse(course)">{{ course.name }}</div>
+            <div class="slide-content" @click="viewCourse(course)">
+              {{ course.name }}
+              <img :src="'../assets/flags/' + course.language + '.svg'" class="flag-svg">
+              </div>
           </ion-slide>
         </ion-slides>
       </div>
