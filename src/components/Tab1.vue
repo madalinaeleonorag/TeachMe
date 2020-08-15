@@ -38,9 +38,16 @@
         <ion-slides ref="categories" pager="false" scrollbar="false" class="slider-container">
           <ion-slide class="slider" v-for="course in category.courses" :key="course.id">
             <div class="slide-content" @click="viewCourse(course)">
+              <div class="slider-title">
               {{ course.name }}
-              <img :src="'../assets/flags/' + course.language + '.svg'" class="flag-svg">
               </div>
+              <div class="slider-language">
+                <img v-if="course.language" :src="require('../assets/flags/' + course.language + '.png')" class="flag-png"> {{ course.language}}
+              </div>
+              <div class="slider-chapters" v-if="course && course.chapters">
+                Chapters: {{course.chapters.length}}
+              </div>
+            </div>
           </ion-slide>
         </ion-slides>
       </div>
@@ -115,10 +122,9 @@ export default {
 }
 .slide-content {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 35px;
+  flex-flow: column;
+  height: 100%;
+  padding: 10px;
   margin: 10px 5px;
   font-size: 12px;
   color: white;
@@ -134,6 +140,31 @@ export default {
   justify-content: center;
   display: flex;
   height: 30px;
+}
+.slider-language {
+  display: flex;
+  align-items: center;
+}
+.flag-png {
+  height: 10px !important;
+  padding-right: 3px;
+}
+.slider-title {
+  height: 100%;
+  display: flex;
+  text-align: left;
+  word-break: break-word;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1rem;
+  padding-bottom: 5px;
+}
+.slider-chapters {
+  text-transform: uppercase;
+  font-size: 9px;
+  padding-top: 3px;
+  opacity: 0.7;
+  align-self: start;
 }
 .hp-style {
   --background: #170a3a;
