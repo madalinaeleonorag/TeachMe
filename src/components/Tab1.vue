@@ -1,8 +1,9 @@
 <template>
-  <ion-content class="hp-style">
-    <ion-toolbar class="toolbar-style">
-      <ion-title>Teach me secure</ion-title>
-    </ion-toolbar>
+  <ion-content class="dark-color-background">
+      <ion-title class="wrapper-title">
+        <div class="cover-title">TeachMe</div>
+        <div class="cover-subtitle">Selflearning App</div>
+      </ion-title>
     <ion-text v-if="userDetails">
       <div class="user-infos">
       Welcome back, {{userDetails.name}}. <a href="#" v-if="user" @click="signOut">Log out</a>
@@ -10,15 +11,10 @@
     </ion-text>
     <ion-card class="statistic-card" v-if="userDetails" >
       <ion-grid>
-        <ion-row>
-          <ion-col>
+        <ion-row class="statistics">
             <ion-item lines='none' class="statistic-item">{{userDetails.courses.length}} courses finished </ion-item>
-
-          </ion-col>
-          <ion-col>
-           <ion-item lines='none' class="statistic-item">{{userDetails.points}} points </ion-item>
-
-          </ion-col>
+            <div class="statistic-item">&#62;</div>
+           <ion-item lines='none' class="statistic-item">{{ getUserTotalPoints }} points </ion-item>
         </ion-row>
       </ion-grid>
     </ion-card>
@@ -73,6 +69,13 @@ export default {
       },
     };
   },
+  created() {
+    if (this.user) {
+      console.log('user is logged in');
+    } else {
+      this.goToLogin();
+    }
+  },
   computed: {
     user() {
       return this.$store.getters.user;
@@ -80,14 +83,13 @@ export default {
     userDetails() {
       return this.$store.getters.userDetails;
     },
+    getUserTotalPoints() {
+      return this.userDetails.courses.reduce((acc, currVal) => acc + currVal);
+    }
   },
   methods: {
     viewCourse(course) {
-      if (this.user) {
         this.$router.push({ name: "tab1-details", params: { course } });
-      } else {
-        this.goToLogin();
-      }
     },
     showAllCourses(category) {
       this.selectedCategory = category.name;
@@ -97,7 +99,8 @@ export default {
     },
     signOut() {
       this.$store.dispatch("logout");
-    },
+      this.$router.push({ name: "login" });
+    }
   },
   updated() {
     let category = this.$refs.categories;
@@ -117,6 +120,24 @@ export default {
 }
 .slider {
   width: 30%;
+}
+.cover-title {
+  font-family: fantasy;
+  font-size: 36px;
+  color: #57b3ed;
+}
+.statistics {
+  align-items: center;
+  justify-content: space-around;
+}
+.cover-subtitle {
+  font-family: monospace;
+  text-transform: uppercase;
+} 
+.wrapper-title {
+  padding: 40px 0px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(87,179,237,1) 0%, rgba(23,10,58,1) 100%);
 }
 .slide-content {
   display: flex;

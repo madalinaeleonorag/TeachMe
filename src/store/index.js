@@ -33,8 +33,7 @@ export default new Vuex.Store({
                         .ref("userDetails/" + id)
                         .set({
                             name: payload.name,
-                            courses: '',
-                            points: 0
+                            courses: ''
                         });
                 })
                 .then(() => router.push({ path: "/" }))
@@ -81,6 +80,12 @@ export default new Vuex.Store({
                     console.log("error", error);
                 });
         },
+        addQuizResult({ commit }, payload) {
+            // let courses = this.state.userDetails.courses;
+            // courses[payload.id] = payload.points;
+            // firebase.database().ref("userDetails/" + this.state.user.uid + "/courses/").update(courses);
+            // commit('setUserDetails', this.state.userDetails)
+        }
     },
     getters: {
         user: state => state.user,

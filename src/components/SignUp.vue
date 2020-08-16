@@ -1,42 +1,23 @@
 <template>
   <div>
-    <ion-header>
-      <ion-toolbar class="toolbar-style">
-        <ion-buttons slot="start">
-          <ion-back-button default-href="/" text color="light"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Sign up</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="register-page">
+    <ion-content class="dark-color-background">
       <form onsubmit="processForm(event)" class="form-container">
-        <ion-list lines="full">
+        <ion-list lines="full" class="fields-inputs">
           <ion-item class="form-line">
-            <ion-label position="floating" class="form-label">
-              Name
-              <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <ion-input required type="text" v-on:ionInput="handleNameChange($event)"></ion-input>
+            <ion-input placeholder="Name" required type="text" v-on:ionInput="handleNameChange($event)"></ion-input>
           </ion-item>
+          <v-divider></v-divider>
           <ion-item class="form-line">
-            <ion-label position="floating" class="form-label">
-              Email
-              <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <ion-input required type="email" v-on:ionInput="handleEmailChange($event)"></ion-input>
+            <ion-input required placeholder="Email" type="email" v-on:ionInput="handleEmailChange($event)"></ion-input>
           </ion-item>
-
+          <v-divider></v-divider>
           <ion-item class="form-line">
-            <ion-label position="floating" class="form-label">
-              Password
-              <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <ion-input required type="password" v-on:ionInput="handlePasswordChange($event)"></ion-input>
+            <ion-input required type="password" placeholder="Password" v-on:ionInput="handlePasswordChange($event)"></ion-input>
           </ion-item>
         </ion-list>
-
-        <div class="ion-padding">
-          <ion-button fill="clear" @click="createAccount()">Create account</ion-button>
+        <div class="ion-padding buttons">
+          <ion-button class="flat-button" @click="createAccount()">Create account</ion-button>
+          <ion-button @click="goToSignIn" fill="clear" class="text-button">Do you have an account? Sign in</ion-button>
         </div>
       </form>
     </ion-content>
@@ -63,27 +44,12 @@ export default {
     handlePasswordChange($event) {
       this.password = $event.target.value;
     },
+    goToSignIn() {
+      this.$router.push({ name: "login" });
+    },
     createAccount() {
       this.$store.dispatch('signUp', {email: this.email, password: this.password, name: this.name})
     },
   },
 };
 </script>
-
-<style scoped>
-.register-page {
-  --background: #170a3a;
-}
-.form-container {
-  margin-top: 30%;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-/* .form-line {
-  --background: white;
-} */
-.form-label {
-  font-size: 12px;
-  /* color: black; */
-}
-</style>

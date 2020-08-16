@@ -9,14 +9,17 @@
             color="light"
           ></ion-back-button>
         </ion-buttons>
-        <ion-title>{{ this.courseDetails.name }} </ion-title>
+        <ion-title class="course-title"
+          >{{ this.courseDetails.name }}
+        </ion-title>
       </ion-toolbar>
       <ion-progress-bar
         class="progress-bar"
+        color="secondary"
         :value="actualChapter.id / courseDetails.chapters.length"
       ></ion-progress-bar>
     </ion-header>
-    <ion-content padding class="hp-style">
+    <ion-content padding class="dark-color-background">
       <v-flex xs12 sm12 class="content">
         <div>
           <!-- chapter text -->
@@ -55,29 +58,39 @@
 
           <!-- progress donut to be implemented -->
           <div v-if="seeResults === true">
-            Correct questions: {{ correctQuestions }}
-
+            <div class="header-results">
+              <v-progress-circular
+                :rotate="360"
+                :size="100"
+                :width="15"
+                :value="resultPercentage"
+                color="teal"
+              >
+                {{ resultPercentage }}
+              </v-progress-circular>
+              Correct questions: {{ correctQuestions }}
+            </div>
             <div>
               <div v-for="(question, index3) in wrongQuestions" :key="index3">
                 <div class="question">
                   {{ courseDetails.questions[question[0]].question }}
                 </div>
-                <div class="wrong-answer">
-                  <ion-icon name="close" class="close-icon"></ion-icon>
+                <div class="error-color">
+                  <ion-icon name="close" class="error-color"></ion-icon>
                   {{
                     courseDetails.questions[question[0]].answers[question[1]]
                       .answer
                   }}
                 </div>
-                <div class="correct-answer">
-                  <ion-icon name="checkmark" class="check-icon"></ion-icon>
+                <div class="success-color">
+                  <ion-icon name="checkmark" class="success-color"></ion-icon>
                   {{ getCorrectAnswerForQuestion(question[0]) }}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </v-flex> 
+      </v-flex>
     </ion-content>
 
     <ion-tab-bar class="actions-bar" slot="bottom">
@@ -133,6 +146,7 @@ export default {
     correctQuestions: 0,
     answers: [],
     wrongQuestions: [],
+    resultPercentage: 0,
   }),
   created() {
     this.courseDetails = this.$route.params.course;
@@ -195,6 +209,11 @@ export default {
       this.correctQuestions = correct;
       this.wrongQuestions = wrong;
       this.seeResults = true;
+      this.resultPercentage = Math.round(correct / this.courseDetails.questions.length * 100);
+      this.$store.dispatch("addQuizResult", {
+        id: this.courseDetails.id,
+        points: this.resultPercentage,
+      });
     },
     nextChapter() {
       this.chapterNumber = this.chapterNumber + 1;
@@ -227,18 +246,9 @@ export default {
 .question {
   margin-top: 10px;
 }
-.wrong-answer {
-  color: #b45171;
-}
-.correct-answer {
-  color: #0cfbc1;
-}
 .actions-bar {
   --background: #170a3a;
   --color: #57b3ed;
-}
-.v-progress-circular {
-  margin: 1rem;
 }
 .chapter-title {
   color: #57b3ed;
@@ -250,6 +260,15 @@ export default {
   background-color: #241b52;
   font-size: initial;
 }
+.header-results {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 20px 0;
+}
+.v-progress-circular {
+  margin-bottom: 15px;
+}
 .theory-text {
   word-spacing: 1px;
   white-space: pre-line;
@@ -259,18 +278,23 @@ export default {
 }
 .show-questions {
   background-color: #170a3a;
-} */
-.progress-bar {
+}
+*/ .progress-bar {
   height: 5px;
 }
 .next-button,
 .back-button,
-.see-results-buttons {
-  font-size: 1.5rem;
-}
+.see-results-buttons,
 .quiz-button,
 .go-back-button {
-  font-size: 1rem;
+  font-size: 16px;
+}
+.v-label {
+  color: white !important;
+  font-size: 14px;
+}
+.course-title {
+  text-align: start;
 }
 .div {
   border: none;

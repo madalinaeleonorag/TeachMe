@@ -902,7 +902,7 @@ let categories = [
     icon: "star",
     courses: [
       {
-        id: 1,
+        id: 3,
         name: "Basic english",
         language: "english",
         chapters: [

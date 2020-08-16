@@ -31,16 +31,16 @@ ion-toolbar.toolbar-ios ion-title.title-ios {
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
 }
-.close-icon {
+.error-color {
   color: #b45171;
 }
-.check-icon {
+.success-color {
   color: #0cfbc1;
 }
 a {
   color: #57b3ed !important;
 }
-.hp-style {
+.dark-color-background {
   --background: #170a3a;
   --color: white;
 }
@@ -55,5 +55,34 @@ a {
 .icon-style {
   color: #304582;
   font-size: large;
+}
+.text-button {
+  font-size: 10px;
+  color: #57b3ed;
+  padding-top: 20px;
+}
+.flat-button {
+  font-weight: 400;
+  margin-top: 10px;
+  --background: #57b3ed;
+}
+.form-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  margin-top: -10%;
+}
+.list-md-lines-full .item {
+  --border-width: 0px;
+}
+.fields-inputs {
+  border-radius: 5px;
+}
+.buttons {
+  display: flex;
+  flex-flow: column;
 }
 </style>
