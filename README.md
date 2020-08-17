@@ -20,3 +20,27 @@ To run the project on your machine use npm run serve for a dev server. Navigate 
 * Keep track on how many courses did you finish
 * Collect points from every test you take
 
+## Screenshots
+* Login page
+
+<img src="src/assets/login .png?raw=true" width="300">
+
+* Sign up page
+
+<img src="src/assets/signup.png?raw=true" width="300">
+
+* Home page
+
+<img src="src/assets/hp2.png?raw=true" width="300">
+
+* Course page - theory part
+
+<img src="src/assets/theory.png?raw=true" width="300">
+
+* Course page - quiz part
+
+<img src="src/assets/quiz.png?raw=true" width="300">
+
+* Course page - quiz results part
+
+<img src="src/assets/results.png?raw=true" width="300">
