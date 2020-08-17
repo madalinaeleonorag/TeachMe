@@ -209,7 +209,9 @@ export default {
       this.correctQuestions = correct;
       this.wrongQuestions = wrong;
       this.seeResults = true;
-      this.resultPercentage = Math.round(correct / this.courseDetails.questions.length * 100);
+      this.resultPercentage = Math.round(
+        (correct / this.courseDetails.questions.length) * 100
+      );
       this.$store.dispatch("addQuizResult", {
         id: this.courseDetails.id,
         points: this.resultPercentage,

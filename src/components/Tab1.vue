@@ -1,20 +1,25 @@
 <template>
   <ion-content class="dark-color-background">
-      <ion-title class="wrapper-title">
-        <div class="cover-title">TeachMe</div>
-        <div class="cover-subtitle">Selflearning App</div>
-      </ion-title>
+    <ion-title class="wrapper-title">
+      <div class="cover-title">TeachMe</div>
+      <div class="cover-subtitle">Selflearning App</div>
+    </ion-title>
     <ion-text v-if="userDetails">
       <div class="user-infos">
-      Welcome back, {{userDetails.name}}. <a href="#" v-if="user" @click="signOut">Log out</a>
+        Welcome back, {{ userDetails.name }}.
+        <a href="#" v-if="user" @click="signOut">Log out</a>
       </div>
     </ion-text>
-    <ion-card class="statistic-card" v-if="userDetails" >
+    <ion-card class="statistic-card" v-if="userDetails">
       <ion-grid>
         <ion-row class="statistics">
-            <ion-item lines='none' class="statistic-item">{{userDetails.courses.length}} courses finished </ion-item>
-            <div class="statistic-item">&#62;</div>
-           <ion-item lines='none' class="statistic-item">{{ getUserTotalPoints }} points </ion-item>
+          <ion-item lines="none" class="statistic-item"
+            >{{ userDetails.courses.length }} courses finished
+          </ion-item>
+          <div class="statistic-item">&#62;</div>
+          <ion-item lines="none" class="statistic-item"
+            >{{ getUserTotalPoints }} points
+          </ion-item>
         </ion-row>
       </ion-grid>
     </ion-card>
@@ -26,24 +31,38 @@
     >
       <ion-item lines="none" class="category-title">
         <ion-icon :name="category.icon" class="icon-style"></ion-icon>
-        <ion-label>&nbsp; {{category.name}}</ion-label>
+        <ion-label>&nbsp; {{ category.name }}</ion-label>
         <ion-chip outline class="chip-style">
-          <ion-label>{{category.courses.length}}</ion-label>
+          <ion-label>{{ category.courses.length }}</ion-label>
         </ion-chip>
       </ion-item>
 
       <div v-show="selectedCategory === category.name">
-        <ion-slides ref="categories" pager="false" scrollbar="false" class="slider-container">
-          <ion-slide class="slider" v-for="course in category.courses" :key="course.id">
+        <ion-slides
+          ref="categories"
+          pager="false"
+          scrollbar="false"
+          class="slider-container"
+        >
+          <ion-slide
+            class="slider"
+            v-for="course in category.courses"
+            :key="course.id"
+          >
             <div class="slide-content" @click="viewCourse(course)">
               <div class="slider-title">
-              {{ course.name }}
+                {{ course.name }}
               </div>
               <div class="slider-language">
-                <img v-if="course.language" :src="require('../assets/flags/' + course.language + '.png')" class="flag-png"> {{ course.language}}
+                <img
+                  v-if="course.language"
+                  :src="require('../assets/flags/' + course.language + '.png')"
+                  class="flag-png"
+                />
+                {{ course.language }}
               </div>
               <div class="slider-chapters" v-if="course && course.chapters">
-                Chapters: {{course.chapters.length}}
+                Chapters: {{ course.chapters.length }}
               </div>
             </div>
           </ion-slide>
@@ -71,7 +90,7 @@ export default {
   },
   created() {
     if (this.user) {
-      console.log('user is logged in');
+      console.log("user is logged in");
     } else {
       this.goToLogin();
     }
@@ -84,12 +103,16 @@ export default {
       return this.$store.getters.userDetails;
     },
     getUserTotalPoints() {
-      return this.userDetails.courses.reduce((acc, currVal) => acc + currVal);
-    }
+      if (this.userDetails && this.userDetails.courses) {
+        return this.userDetails.courses.reduce((acc, currVal) => acc + currVal);
+      } else {
+        return 0;
+      }
+    },
   },
   methods: {
     viewCourse(course) {
-        this.$router.push({ name: "tab1-details", params: { course } });
+      this.$router.push({ name: "tab1-details", params: { course } });
     },
     showAllCourses(category) {
       this.selectedCategory = category.name;
@@ -100,7 +123,7 @@ export default {
     signOut() {
       this.$store.dispatch("logout");
       this.$router.push({ name: "login" });
-    }
+    },
   },
   updated() {
     let category = this.$refs.categories;
@@ -133,11 +156,15 @@ export default {
 .cover-subtitle {
   font-family: monospace;
   text-transform: uppercase;
-} 
+}
 .wrapper-title {
   padding: 40px 0px;
   text-align: center;
-  background: linear-gradient(180deg, rgba(87,179,237,1) 0%, rgba(23,10,58,1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(87, 179, 237, 1) 0%,
+    rgba(23, 10, 58, 1) 100%
+  );
 }
 .slide-content {
   display: flex;

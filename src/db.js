@@ -911,16 +911,14 @@ let categories = [
             id: 1,
             title: "English test",
             theory: `Test your english level by answer the questions from the quiz`,
-          }
+          },
         ],
         questions: [
           {
-            question:
-              "He goes to his guitar lessons....",
+            question: "He goes to his guitar lessons....",
             answers: [
               {
-                answer:
-                  "by underground",
+                answer: "by underground",
                 correct: true,
               },
               {
@@ -938,12 +936,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "She .... Supper with us last Friday",
+            question: "She .... Supper with us last Friday",
             answers: [
               {
-                answer:
-                  "hadn’t",
+                answer: "hadn’t",
                 correct: false,
               },
               {
@@ -965,8 +961,7 @@ let categories = [
               "We have to go to the supermarket ..... some bread and milk.",
             answers: [
               {
-                answer:
-                  "for getting",
+                answer: "for getting",
                 correct: false,
               },
               {
@@ -984,12 +979,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "Have you...?",
+            question: "Have you...?",
             answers: [
               {
-                answer:
-                  "got any friends in Barcelona",
+                answer: "got any friends in Barcelona",
                 correct: true,
               },
               {
@@ -1007,12 +1000,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "Every year,he goes to the coast for his holidays ....",
+            question: "Every year,he goes to the coast for his holidays ....",
             answers: [
               {
-                answer:
-                  "in train",
+                answer: "in train",
                 correct: false,
               },
               {
@@ -1030,12 +1021,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "Michael.........Paris in the morning",
+            question: "Michael.........Paris in the morning",
             answers: [
               {
-                answer:
-                  "to leaving",
+                answer: "to leaving",
                 correct: false,
               },
               {
@@ -1053,12 +1042,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "She has her German classes .. Tuesday mornings",
+            question: "She has her German classes .. Tuesday mornings",
             answers: [
               {
-                answer:
-                  "in",
+                answer: "in",
                 correct: false,
               },
               {
@@ -1076,12 +1063,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "That file belongs to Patricia, give it to ....",
+            question: "That file belongs to Patricia, give it to ....",
             answers: [
               {
-                answer:
-                  "it",
+                answer: "it",
                 correct: false,
               },
               {
@@ -1099,12 +1084,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "Pass ....",
+            question: "Pass ....",
             answers: [
               {
-                answer:
-                  "the salt to Tom",
+                answer: "the salt to Tom",
                 correct: true,
               },
               {
@@ -1122,12 +1105,10 @@ let categories = [
             ],
           },
           {
-            question:
-              "He says he's been robbed. He can't find his wallet ....",
+            question: "He says he's been robbed. He can't find his wallet ....",
             answers: [
               {
-                answer:
-                  "not anywhere",
+                answer: "not anywhere",
                 correct: false,
               },
               {
@@ -1143,7 +1124,7 @@ let categories = [
                 correct: false,
               },
             ],
-          }
+          },
         ],
       },
     ],
@@ -1153,7 +1134,8 @@ let categories = [
     name: "General knowledge",
     icon: "md-add-circle",
     courses: [
-      { id: 1, 
+      {
+        id: 1,
         name: "Trivia animals",
         language: "english",
         chapters: [
@@ -1163,16 +1145,14 @@ let categories = [
             title: "About",
             theory: `If you love big cats as much as Carole Baskin, know your amphibians from your reptiles and are clued up on mammals both big and small, then this animal quiz is for you.
             `,
-          }
+          },
         ],
         questions: [
           {
-            question:
-              "Which is the only big cat that can't roar?",
+            question: "Which is the only big cat that can't roar?",
             answers: [
               {
-                answer:
-                  "Cheetahs",
+                answer: "Cheetahs",
                 correct: true,
               },
               {
@@ -1182,12 +1162,11 @@ let categories = [
               {
                 answer: "Wild cats",
                 correct: false,
-              }
+              },
             ],
           },
           {
-            question:
-              "What is the largest lang animal in the world?",
+            question: "What is the largest lang animal in the world?",
             answers: [
               {
                 answer: "Horses",
@@ -1200,37 +1179,33 @@ let categories = [
             ],
           },
           {
-            question:
-              "What is the wingspan of a bald eagle?",
+            question: "What is the wingspan of a bald eagle?",
             answers: [
               {
-                answer:
-                  "5 feet",
+                answer: "5 feet",
                 correct: false,
               },
               {
                 answer: "8 feet",
                 correct: true,
-              }
+              },
             ],
           },
           {
-            question:
-              "What counts for 99 percent of a panda's diet?",
+            question: "What counts for 99 percent of a panda's diet?",
             answers: [
               {
-                answer:
-                  "Bamboo",
+                answer: "Bamboo",
                 correct: true,
               },
               {
                 answer: "Fish",
                 correct: false,
-              }
+              },
             ],
-          }
+          },
         ],
-      }
+      },
     ],
   },
 ];

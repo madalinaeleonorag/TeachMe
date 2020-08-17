@@ -1,6 +1,6 @@
-<template >
-  <div id="app" >
-    <ion-app >
+<template>
+  <div id="app">
+    <ion-app>
       <ion-vue-router main></ion-vue-router>
     </ion-app>
   </div>
@@ -12,8 +12,8 @@ export default {
   data() {
     return {
       //
-    }
-  }
+    };
+  },
 };
 </script>
 
@@ -69,7 +69,7 @@ a {
 .form-container {
   margin-left: 20px;
   margin-right: 20px;
-  height: 100%;
+  padding-top: 50px;
   display: flex;
   justify-content: center;
   flex-flow: column;

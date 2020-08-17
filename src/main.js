@@ -1,17 +1,17 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import './plugins/vuetify'
-import App from './App.vue'
+import Vue from "vue";
+import Vuex from "vuex";
+import "./plugins/vuetify";
+import App from "./App.vue";
 import "@ionic/core/css/core.css";
 import "@ionic/core/css/ionic.bundle.css";
-import Ionic from "@ionic/vue"
+import Ionic from "@ionic/vue";
 import { IonicVueRouter } from "@ionic/vue";
-import store from './store'
+import store from "./store";
 
 Vue.config.productionTip = false;
 Vue.use(Ionic);
 Vue.use(IonicVueRouter);
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export const router = new IonicVueRouter({
   mode: "history",
@@ -34,19 +34,20 @@ export const router = new IonicVueRouter({
           components: {
             tab1Route: () => import("@/components/Tab1Details.vue"),
           },
-        }
+        },
       ],
     },
     {
-      path: '/sign-up', name: 'sign-up',
-      component: () => import('@/components/SignUp.vue')
+      path: "/sign-up",
+      name: "sign-up",
+      component: () => import("@/components/SignUp.vue"),
     },
     {
-      path: '/login', name: 'login',
-      component: () => import('@/components/Login.vue')
+      path: "/login",
+      name: "login",
+      component: () => import("@/components/Login.vue"),
     },
     { path: "/", redirect: "tabs/tab1" },
-
   ],
 });
 new Vue({
