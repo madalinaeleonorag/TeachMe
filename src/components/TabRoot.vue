@@ -14,7 +14,7 @@
 
 <script>
 import { addIcons } from "ionicons";
-import { star, lockClosedOutline, addCircle } from "ionicons/icons";
+import { star, lockClosedOutline, addCircle , checkmark} from "ionicons/icons";
 
 addIcons({
   "ios-star": star,
@@ -23,6 +23,8 @@ addIcons({
   "md-lock-closed": lockClosedOutline,
   "ios-add-circle": addCircle,
   "md-add-circle": addCircle,
+  "ios-checkmark" : checkmark,
+  "md-checkmark": checkmark
 });
 export default {
   name: "TabRoot",
